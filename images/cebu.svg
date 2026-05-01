@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="c-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a6fa3"/>
+      <stop offset="55%" stop-color="#29aee8"/>
+      <stop offset="100%" stop-color="#71cef0"/>
+    </linearGradient>
+    <linearGradient id="c-sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1388cc"/>
+      <stop offset="100%" stop-color="#05436e"/>
+    </linearGradient>
+    <linearGradient id="c-sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8d09a"/>
+      <stop offset="100%" stop-color="#c9a85c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="400" height="300" fill="url(#c-sky)"/>
+
+  <!-- Sun -->
+  <circle cx="310" cy="72" r="46" fill="#ffe14d" opacity="0.92"/>
+  <circle cx="310" cy="72" r="38" fill="#ffd000"/>
+
+  <!-- Cloud -->
+  <ellipse cx="100" cy="60" rx="42" ry="18" fill="white" opacity="0.55"/>
+  <ellipse cx="130" cy="54" rx="30" ry="16" fill="white" opacity="0.55"/>
+  <ellipse cx="80"  cy="63" rx="26" ry="14" fill="white" opacity="0.45"/>
+
+  <!-- Sea -->
+  <path d="M0,195 Q100,180 200,195 Q300,210 400,195 L400,300 L0,300 Z" fill="url(#c-sea)"/>
+  <!-- Wave highlight -->
+  <path d="M0,192 Q50,184 100,192 Q150,200 200,192 Q250,184 300,192 Q350,200 400,192" fill="none" stroke="white" stroke-width="2.5" opacity="0.4"/>
+
+  <!-- Beach -->
+  <path d="M0,228 Q120,215 240,228 Q320,238 400,222 L400,300 L0,300 Z" fill="url(#c-sand)"/>
+
+  <!-- Palm left -->
+  <rect x="50" y="145" width="9" height="90" rx="3" fill="#4a2c0a"/>
+  <ellipse cx="54" cy="138" rx="36" ry="22" fill="#1d7a1d" opacity="0.9"/>
+  <ellipse cx="36" cy="133" rx="26" ry="13" fill="#28a028" opacity="0.8" transform="rotate(-25,36,133)"/>
+  <ellipse cx="72" cy="133" rx="26" ry="13" fill="#28a028" opacity="0.8" transform="rotate(25,72,133)"/>
+  <ellipse cx="54" cy="120" rx="20" ry="10" fill="#28a028" opacity="0.75" transform="rotate(-10,54,120)"/>
+
+  <!-- Palm right (smaller) -->
+  <rect x="348" y="168" width="7" height="68" rx="3" fill="#4a2c0a"/>
+  <ellipse cx="352" cy="162" rx="28" ry="17" fill="#1d7a1d" opacity="0.85"/>
+  <ellipse cx="337" cy="158" rx="20" ry="10" fill="#28a028" opacity="0.8" transform="rotate(-20,337,158)"/>
+  <ellipse cx="367" cy="158" rx="20" ry="10" fill="#28a028" opacity="0.8" transform="rotate(20,367,158)"/>
+
+  <!-- Boat silhouette -->
+  <path d="M175,190 L225,190 L220,198 L180,198 Z" fill="#1a4a6a" opacity="0.7"/>
+  <line x1="200" y1="165" x2="200" y2="190" stroke="#1a4a6a" stroke-width="2" opacity="0.7"/>
+  <path d="M200,165 L222,183 L200,183 Z" fill="white" opacity="0.6"/>
+
+  <!-- Text -->
+  <rect x="0" y="240" width="400" height="60" fill="rgba(0,0,0,0.45)"/>
+  <text x="200" y="268" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="26" font-weight="700" fill="white">セブ島（フィリピン）</text>
+  <text x="200" y="288" text-anchor="middle" font-family="sans-serif" font-size="13" fill="rgba(255,255,255,0.8)" letter-spacing="2">CEBU ISLAND · PHILIPPINES</text>
+</svg>

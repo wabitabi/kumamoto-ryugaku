@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="b-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a1660"/>
+      <stop offset="45%" stop-color="#8b2080"/>
+      <stop offset="75%" stop-color="#e05030"/>
+      <stop offset="100%" stop-color="#f09040"/>
+    </linearGradient>
+    <linearGradient id="b-rice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d7a18"/>
+      <stop offset="100%" stop-color="#1a4d0a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="400" height="300" fill="url(#b-sky)"/>
+
+  <!-- Moon -->
+  <circle cx="340" cy="55" r="28" fill="#ffe8a0" opacity="0.85"/>
+  <circle cx="350" cy="48" r="22" fill="#2a1660" opacity="0.6"/>
+
+  <!-- Stars -->
+  <circle cx="30"  cy="25" r="1.5" fill="white" opacity="0.9"/>
+  <circle cx="80"  cy="15" r="1.2" fill="white" opacity="0.8"/>
+  <circle cx="160" cy="30" r="1.5" fill="white" opacity="0.7"/>
+  <circle cx="250" cy="20" r="1.3" fill="white" opacity="0.8"/>
+  <circle cx="70"  cy="55" r="1.2" fill="white" opacity="0.6"/>
+
+  <!-- Rice terraces -->
+  <path d="M0,220 Q80,200 160,215 Q240,230 320,210 Q360,202 400,215 L400,300 L0,300 Z" fill="url(#b-rice)"/>
+  <path d="M0,238 Q80,222 160,232 Q240,242 320,228 Q360,222 400,232 L400,300 L0,300 Z" fill="#236012" opacity="0.9"/>
+  <path d="M0,252 Q80,240 160,248 Q240,256 320,244 Q360,240 400,250 L400,300 L0,300 Z" fill="#1a4a0a" opacity="0.85"/>
+
+  <!-- Pura Ulun Danu temple silhouette -->
+  <!-- Base platform -->
+  <rect x="148" y="178" width="104" height="12" rx="2" fill="#1a1020" opacity="0.9"/>
+  <!-- Tiers -->
+  <rect x="158" y="162" width="84" height="18" rx="2" fill="#1a1020" opacity="0.9"/>
+  <rect x="168" y="148" width="64" height="16" rx="2" fill="#1a1020" opacity="0.9"/>
+  <rect x="178" y="135" width="44" height="15" rx="2" fill="#1a1020" opacity="0.9"/>
+  <rect x="186" y="123" width="28" height="14" rx="2" fill="#1a1020" opacity="0.9"/>
+  <rect x="192" y="112" width="16" height="13" rx="2" fill="#1a1020" opacity="0.9"/>
+  <!-- Spire -->
+  <path d="M197,112 L200,90 L203,112 Z" fill="#1a1020" opacity="0.9"/>
+  <!-- Temple reflection -->
+  <rect x="168" y="190" width="64" height="6" fill="#e05030" opacity="0.15"/>
+
+  <!-- Water reflection -->
+  <ellipse cx="200" cy="198" rx="60" ry="10" fill="#e05030" opacity="0.12"/>
+
+  <!-- Frangipani flower -->
+  <circle cx="50" cy="200" r="14" fill="#f5c085" opacity="0.75"/>
+  <circle cx="38" cy="193" r="10" fill="#f5d0a0" opacity="0.7"/>
+  <circle cx="62" cy="193" r="10" fill="#f5d0a0" opacity="0.7"/>
+
+  <!-- Text -->
+  <rect x="0" y="252" width="400" height="48" fill="rgba(0,0,0,0.55)"/>
+  <text x="200" y="275" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="26" font-weight="700" fill="white">バリ（インドネシア）</text>
+  <text x="200" y="292" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" letter-spacing="2">BALI · INDONESIA</text>
+</svg>

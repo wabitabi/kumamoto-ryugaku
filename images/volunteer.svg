@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="v-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a5c3a"/>
+      <stop offset="55%" stop-color="#2d9a50"/>
+      <stop offset="100%" stop-color="#50c870"/>
+    </linearGradient>
+    <linearGradient id="v-ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8b5e20"/>
+      <stop offset="100%" stop-color="#5c3a08"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background (lush green) -->
+  <rect width="400" height="300" fill="url(#v-sky)"/>
+
+  <!-- Sun -->
+  <circle cx="60" cy="55" r="36" fill="#ffe840" opacity="0.88"/>
+  <circle cx="60" cy="55" r="28" fill="#ffd800"/>
+
+  <!-- Clouds -->
+  <ellipse cx="290" cy="52" rx="50" ry="20" fill="white" opacity="0.7"/>
+  <ellipse cx="316" cy="44" rx="35" ry="17" fill="white" opacity="0.7"/>
+  <ellipse cx="268" cy="56" rx="30" ry="16" fill="white" opacity="0.6"/>
+
+  <ellipse cx="160" cy="40" rx="38" ry="16" fill="white" opacity="0.55"/>
+  <ellipse cx="180" cy="33" rx="26" ry="13" fill="white" opacity="0.55"/>
+
+  <!-- Trees (tropical) -->
+  <!-- Left tree -->
+  <rect x="48"  y="115" width="12" height="130" rx="4" fill="#4a2c0a"/>
+  <circle cx="54" cy="105" r="38" fill="#1a6020" opacity="0.9"/>
+  <circle cx="30" cy="118" r="28" fill="#228028" opacity="0.8"/>
+  <circle cx="78" cy="118" r="28" fill="#228028" opacity="0.8"/>
+  <circle cx="54" cy="82"  r="22" fill="#2a9030" opacity="0.85"/>
+
+  <!-- Right tree -->
+  <rect x="340" y="120" width="10" height="130" rx="3" fill="#4a2c0a"/>
+  <circle cx="345" cy="112" r="32" fill="#1a6020" opacity="0.88"/>
+  <circle cx="326" cy="124" r="24" fill="#228028" opacity="0.78"/>
+  <circle cx="364" cy="124" r="24" fill="#228028" opacity="0.78"/>
+
+  <!-- Ground / soil -->
+  <path d="M0,255 Q100,242 200,255 Q300,268 400,252 L400,300 L0,300 Z" fill="url(#v-ground)"/>
+  <path d="M0,265 Q120,256 240,265 Q320,272 400,262 L400,300 L0,300 Z" fill="#7a4e18" opacity="0.8"/>
+
+  <!-- Grass patch -->
+  <path d="M0,253 Q100,240 200,252 Q300,264 400,250 L400,265 Q300,278 200,265 Q100,252 0,265 Z" fill="#2d9030" opacity="0.9"/>
+
+  <!-- Plant being planted (center) -->
+  <rect x="188" y="215" width="8" height="40" rx="2" fill="#3a5a10"/>
+  <!-- Leaves -->
+  <ellipse cx="192" cy="210" rx="18" ry="12" fill="#3aaa20" opacity="0.9" transform="rotate(-20,192,210)"/>
+  <ellipse cx="192" cy="210" rx="18" ry="12" fill="#2d9a18" opacity="0.85" transform="rotate(20,192,210)"/>
+  <ellipse cx="192" cy="200" rx="14" ry="9"  fill="#48c028" opacity="0.9" transform="rotate(-5,192,200)"/>
+
+  <!-- Hands holding plant -->
+  <!-- Left hand -->
+  <ellipse cx="168" cy="228" rx="22" ry="14" fill="#d4956a" opacity="0.85" transform="rotate(-30,168,228)"/>
+  <!-- Right hand -->
+  <ellipse cx="218" cy="228" rx="22" ry="14" fill="#c8845a" opacity="0.85" transform="rotate(30,218,228)"/>
+
+  <!-- Hearts / sparkles -->
+  <text x="145" y="185" font-size="18" fill="#ff6888" opacity="0.8">♥</text>
+  <text x="240" y="180" font-size="14" fill="#ff6888" opacity="0.7">♥</text>
+  <text x="210" y="165" font-size="12" fill="#ffe830" opacity="0.75">✦</text>
+
+  <!-- Text -->
+  <rect x="0" y="258" width="400" height="42" fill="rgba(0,0,0,0.52)"/>
+  <text x="200" y="280" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="24" font-weight="700" fill="white">ボランティア留学</text>
+  <text x="200" y="295" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" letter-spacing="2">VOLUNTEER ABROAD</text>
+</svg>

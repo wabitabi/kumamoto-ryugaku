@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="f-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2088d0"/>
+      <stop offset="100%" stop-color="#70c8f0"/>
+    </linearGradient>
+    <linearGradient id="f-sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1070b8"/>
+      <stop offset="100%" stop-color="#084878"/>
+    </linearGradient>
+    <linearGradient id="f-sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0d898"/>
+      <stop offset="100%" stop-color="#d8b860"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="400" height="300" fill="url(#f-sky)"/>
+
+  <!-- Sun -->
+  <circle cx="65" cy="62" r="44" fill="#ffe840" opacity="0.9"/>
+  <circle cx="65" cy="62" r="36" fill="#ffd000"/>
+  <!-- Sun rays -->
+  <line x1="65" y1="10"  x2="65" y2="20"  stroke="#ffe840" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <line x1="105" y1="22" x2="99" y2="28"  stroke="#ffe840" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <line x1="117" y1="62" x2="107" y2="62" stroke="#ffe840" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <line x1="25"  y1="22" x2="31" y2="28"  stroke="#ffe840" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <line x1="13"  y1="62" x2="23" y2="62"  stroke="#ffe840" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Rainbow -->
+  <path d="M0,140 Q200,30 400,140" fill="none" stroke="#ff6060" stroke-width="8" opacity="0.18"/>
+  <path d="M0,148 Q200,40 400,148" fill="none" stroke="#ff9820" stroke-width="7" opacity="0.17"/>
+  <path d="M0,155 Q200,48 400,155" fill="none" stroke="#ffe820" stroke-width="6" opacity="0.16"/>
+  <path d="M0,161 Q200,55 400,161" fill="none" stroke="#38c038" stroke-width="6" opacity="0.16"/>
+  <path d="M0,167 Q200,62 400,167" fill="none" stroke="#2888e8" stroke-width="5" opacity="0.15"/>
+  <path d="M0,172 Q200,68 400,172" fill="none" stroke="#8830e8" stroke-width="5" opacity="0.14"/>
+
+  <!-- Clouds -->
+  <ellipse cx="270" cy="65" rx="55" ry="22" fill="white" opacity="0.85"/>
+  <ellipse cx="298" cy="56" rx="38" ry="19" fill="white" opacity="0.85"/>
+  <ellipse cx="248" cy="70" rx="32" ry="17" fill="white" opacity="0.8"/>
+
+  <!-- Sea -->
+  <path d="M0,210 Q100,198 200,210 Q300,222 400,208 L400,300 L0,300 Z" fill="url(#f-sea)"/>
+  <path d="M0,207 Q60,200 120,207 Q180,214 240,207 Q300,200 360,207 Q380,204 400,207" fill="none" stroke="white" stroke-width="2" opacity="0.3"/>
+
+  <!-- Beach -->
+  <path d="M0,238 Q120,226 240,238 Q320,248 400,234 L400,300 L0,300 Z" fill="url(#f-sand)"/>
+
+  <!-- Family silhouette -->
+  <!-- Dad -->
+  <circle cx="155" cy="168" r="20" fill="#c87840" opacity="0.9"/>
+  <rect x="138" y="188" width="34" height="55" rx="6" fill="#1a3a6e" opacity="0.9"/>
+  <path d="M138,200 L118,220" stroke="#1a3a6e" stroke-width="11" stroke-linecap="round" opacity="0.9"/>
+  <path d="M172,200 L192,222" stroke="#1a3a6e" stroke-width="11" stroke-linecap="round" opacity="0.9"/>
+  <path d="M145,243 L140,272" stroke="#0d2a50" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <path d="M165,243 L170,272" stroke="#0d2a50" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- Mom -->
+  <circle cx="245" cy="170" r="19" fill="#d4956a" opacity="0.9"/>
+  <path d="M226,192 Q245,185 264,192 L268,248 L222,248 Z" fill="#e05080" opacity="0.88"/>
+  <path d="M226,200 L208,218" stroke="#e05080" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <path d="M264,200 L282,218" stroke="#e05080" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <path d="M232,248 L228,272" stroke="#b03060" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <path d="M258,248 L262,272" stroke="#b03060" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- Child (between parents, smaller) -->
+  <circle cx="200" cy="185" r="14" fill="#e8a870" opacity="0.9"/>
+  <rect x="189" y="199" width="22" height="40" rx="5" fill="#50b850" opacity="0.88"/>
+  <path d="M189,208 L175,225" stroke="#50b850" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+  <path d="M211,208 L225,225" stroke="#50b850" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+  <path d="M193,239 L190,264" stroke="#2a8030" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+  <path d="M207,239 L210,264" stroke="#2a8030" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- Hearts above -->
+  <text x="183" y="155" font-size="16" fill="#ff6888" opacity="0.85">♥</text>
+  <text x="208" y="148" font-size="12" fill="#ff6888" opacity="0.75">♥</text>
+
+  <!-- Text -->
+  <rect x="0" y="258" width="400" height="42" fill="rgba(0,0,0,0.5)"/>
+  <text x="200" y="280" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="24" font-weight="700" fill="white">親子留学</text>
+  <text x="200" y="295" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" letter-spacing="2">FAMILY ABROAD</text>
+</svg>

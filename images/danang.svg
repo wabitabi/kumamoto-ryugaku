@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="d-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a3d6b"/>
+      <stop offset="50%" stop-color="#1a7aaa"/>
+      <stop offset="100%" stop-color="#44b0d8"/>
+    </linearGradient>
+    <linearGradient id="d-sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f7aaa"/>
+      <stop offset="100%" stop-color="#054a6e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="400" height="300" fill="url(#d-sky)"/>
+
+  <!-- Golden Bridge hint (Ba Na Hills) -->
+  <!-- Support hands (giant stone hands holding bridge) -->
+  <path d="M60,190 Q75,165 90,150 Q95,145 100,150 L110,175 Q100,178 90,185 Q80,192 72,200 Z" fill="#9c8060" opacity="0.85"/>
+  <path d="M290,190 Q305,165 320,150 Q325,145 330,150 L340,175 Q330,178 320,185 Q310,192 302,200 Z" fill="#9c8060" opacity="0.85"/>
+  <!-- Bridge deck -->
+  <rect x="70" y="175" width="265" height="12" rx="4" fill="#d4a843" opacity="0.9"/>
+  <!-- Rails -->
+  <line x1="70"  y1="173" x2="335" y2="173" stroke="#e0b840" stroke-width="2.5" opacity="0.8"/>
+  <line x1="70"  y1="188" x2="335" y2="188" stroke="#e0b840" stroke-width="2.5" opacity="0.8"/>
+
+  <!-- Mountains -->
+  <path d="M0,220 L80,130 L160,220 Z" fill="#1d4a1d" opacity="0.8"/>
+  <path d="M60,220 L150,100 L240,220 Z" fill="#265b26" opacity="0.75"/>
+  <path d="M200,220 L290,120 L380,220 Z" fill="#1d4a1d" opacity="0.7"/>
+  <path d="M310,220 L400,140 L400,220 Z" fill="#1d4a1d" opacity="0.65"/>
+
+  <!-- Mist on mountains -->
+  <ellipse cx="150" cy="175" rx="80" ry="16" fill="white" opacity="0.18"/>
+  <ellipse cx="290" cy="180" rx="70" ry="14" fill="white" opacity="0.15"/>
+
+  <!-- Sea / river -->
+  <path d="M0,230 Q100,220 200,230 Q300,240 400,228 L400,300 L0,300 Z" fill="url(#d-sea)"/>
+  <path d="M0,228 Q80,222 160,228 Q240,234 320,226 Q360,222 400,228" fill="none" stroke="white" stroke-width="1.5" opacity="0.25"/>
+
+  <!-- Lanterns -->
+  <ellipse cx="310" cy="90" rx="9" ry="13" fill="#e83030" opacity="0.85"/>
+  <rect x="309" y="77" width="2" height="6" fill="#c82020" opacity="0.8"/>
+  <ellipse cx="340" cy="78" rx="7" ry="10" fill="#e05050" opacity="0.8"/>
+  <rect x="339" y="67" width="2" height="5" fill="#c82020" opacity="0.8"/>
+  <ellipse cx="365" cy="92" rx="8" ry="11" fill="#c82020" opacity="0.8"/>
+
+  <!-- Cloud -->
+  <ellipse cx="75" cy="72" rx="38" ry="15" fill="white" opacity="0.4"/>
+  <ellipse cx="100" cy="65" rx="28" ry="13" fill="white" opacity="0.4"/>
+
+  <!-- Text -->
+  <rect x="0" y="252" width="400" height="48" fill="rgba(0,0,0,0.52)"/>
+  <text x="200" y="275" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="26" font-weight="700" fill="white">ダナン（ベトナム）</text>
+  <text x="200" y="292" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" letter-spacing="2">DA NANG · VIETNAM</text>
+</svg>

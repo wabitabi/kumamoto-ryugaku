@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <linearGradient id="hs-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2860"/>
+      <stop offset="55%" stop-color="#1a5acc"/>
+      <stop offset="100%" stop-color="#3080e8"/>
+    </linearGradient>
+    <linearGradient id="hs-ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a8030"/>
+      <stop offset="100%" stop-color="#185018"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="400" height="300" fill="url(#hs-sky)"/>
+
+  <!-- Stars -->
+  <circle cx="30"  cy="22" r="1.6" fill="white" opacity="0.9"/>
+  <circle cx="75"  cy="15" r="1.3" fill="white" opacity="0.8"/>
+  <circle cx="130" cy="28" r="1.5" fill="white" opacity="0.75"/>
+  <circle cx="310" cy="18" r="1.4" fill="white" opacity="0.85"/>
+  <circle cx="365" cy="35" r="1.5" fill="white" opacity="0.8"/>
+  <circle cx="55"  cy="52" r="1.2" fill="white" opacity="0.65"/>
+  <circle cx="270" cy="40" r="1.6" fill="white" opacity="0.7"/>
+
+  <!-- Airplane -->
+  <path d="M200,68 L220,72 L215,78 L200,74 L185,78 L180,72 Z" fill="white" opacity="0.85"/>
+  <path d="M200,68 L202,60 L208,65 L200,74 L192,65 L198,60 Z" fill="white" opacity="0.8"/>
+  <rect x="198" y="70" width="4" height="20" fill="white" opacity="0.7"/>
+  <!-- Contrail -->
+  <line x1="200" y1="73" x2="145" y2="73" stroke="white" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+  <line x1="200" y1="73" x2="148" y2="76" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Moon -->
+  <circle cx="340" cy="55" r="30" fill="#fff8d0" opacity="0.85"/>
+  <circle cx="350" cy="47" r="24" fill="#0a2860" opacity="0.65"/>
+
+  <!-- Ground -->
+  <path d="M0,230 Q100,218 200,230 Q300,242 400,228 L400,300 L0,300 Z" fill="url(#hs-ground)"/>
+
+  <!-- Student with suitcase silhouette -->
+  <!-- Head -->
+  <circle cx="200" cy="160" r="22" fill="#d4956a" opacity="0.9"/>
+  <!-- School uniform body -->
+  <path d="M178,182 L178,238 L222,238 L222,182 Q210,175 200,182 Q190,175 178,182 Z" fill="#1a2a5c" opacity="0.9"/>
+  <!-- Arm holding bag -->
+  <path d="M222,190 L242,218" stroke="#1a2a5c" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+  <!-- Suitcase -->
+  <rect x="238" y="215" width="36" height="30" rx="5" fill="#e83030" opacity="0.9"/>
+  <rect x="248" y="210" width="16" height="6" rx="3" fill="#c82020" opacity="0.85"/>
+  <line x1="238" y1="230" x2="274" y2="230" stroke="#c82020" stroke-width="2" opacity="0.7"/>
+  <line x1="256" y1="215" x2="256" y2="245" stroke="#c82020" stroke-width="2" opacity="0.7"/>
+  <!-- Flag sticker on suitcase -->
+  <rect x="242" y="217" width="12" height="8" rx="1" fill="#ffe000" opacity="0.8"/>
+  <!-- Left arm (waving) -->
+  <path d="M178,195 L150,170" stroke="#1a2a5c" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="148" cy="168" r="10" fill="#d4956a" opacity="0.9"/>
+  <!-- Legs -->
+  <path d="M185,238 L180,268" stroke="#0a1a3c" stroke-width="11" stroke-linecap="round" opacity="0.9"/>
+  <path d="M215,238 L220,268" stroke="#0a1a3c" stroke-width="11" stroke-linecap="round" opacity="0.9"/>
+
+  <!-- Graduation cap hint -->
+  <rect x="185" y="140" width="30" height="6" rx="2" fill="#1a1a1a" opacity="0.85"/>
+  <path d="M200,125 L215,140 L185,140 Z" fill="#1a1a1a" opacity="0.85"/>
+  <line x1="215" y1="140" x2="218" y2="155" stroke="#1a1a1a" stroke-width="2" opacity="0.8"/>
+  <circle cx="218" cy="157" r="3" fill="#e83838" opacity="0.8"/>
+
+  <!-- Stars / sparkles around student -->
+  <text x="136" y="200" font-size="16" fill="#ffe830" opacity="0.8">★</text>
+  <text x="250" y="165" font-size="12" fill="#ffe830" opacity="0.7">✦</text>
+
+  <!-- Text -->
+  <rect x="0" y="258" width="400" height="42" fill="rgba(0,0,0,0.52)"/>
+  <text x="200" y="280" text-anchor="middle" font-family="'Noto Sans JP',sans-serif" font-size="24" font-weight="700" fill="white">高校生留学</text>
+  <text x="200" y="295" text-anchor="middle" font-family="sans-serif" font-size="12" fill="rgba(255,255,255,0.8)" letter-spacing="2">HIGH SCHOOL ABROAD</text>
+</svg>
