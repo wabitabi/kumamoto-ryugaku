@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ---------- Contact Form submit (Formspree) ---------- */
   // Formspree setup: https://formspree.io → 新規フォーム作成 → Form ID をここに貼る
-  const FORMSPREE_ID = 'YOUR_FORM_ID'; // ← Formspree の Form ID に差し替えてください
+  const FORMSPREE_ID = 'xojrvapy';
 
   const form = document.getElementById('contact-form');
   if (form) {
