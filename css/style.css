@@ -1319,3 +1319,118 @@ p  { font-size: clamp(0.95rem, 2vw, 1.05rem); color: #333; }
 @media (max-width: 400px) {
   .program-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================
+   画像差し替え後の追加スタイル
+   ============================================ */
+
+/* Hero – 画像オーバーレイテキスト */
+.hero-img-placeholder { position: relative; overflow: hidden; }
+.hero-img-placeholder img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+.hero-img-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(10,20,50,0.82) 0%, rgba(10,20,50,0.4) 60%, transparent 100%);
+  padding: 32px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.hero-img-overlay-main {
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.35;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.hero-img-overlay-sub {
+  font-size: clamp(0.78rem, 1.5vw, 0.95rem);
+  color: rgba(255,255,255,0.88);
+  font-weight: 600;
+}
+.hero-img-overlay-fee {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-top: 4px;
+  width: fit-content;
+}
+
+/* Problem – バナー画像 */
+.problem-img-banner {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 32px 0;
+  box-shadow: var(--shadow);
+  max-height: 340px;
+}
+.problem-img-banner img {
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+/* Reasons – 相談写真 */
+.reasons-img-placeholder {
+  border-radius: 20px;
+  overflow: hidden;
+  background: none;
+}
+.reasons-img-placeholder img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-radius: 20px;
+}
+
+/* Message – 代表写真 */
+.message-img-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* Voices – 現地写真バナー */
+.voices-photo-banner {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.voices-photo-banner img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+.voices-photo-banner-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(10,20,50,0.75) 0%, transparent 100%);
+  padding: 24px 20px 16px;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
