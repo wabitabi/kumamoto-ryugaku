@@ -66,7 +66,8 @@ section { padding: 64px 40px; }
 .ah-btns { display: flex; gap: 12px; }
 .btn-main { background: var(--acc); color: #fff; border: none; padding: 14px 28px; border-radius: 20px; font-size: 15px; font-weight: 700; cursor: pointer; }
 .btn-sub { background: transparent; color: var(--pri); border: 2px solid var(--pri); padding: 14px 24px; border-radius: 20px; font-size: 15px; font-weight: 700; cursor: pointer; }
-.ah-img { height: 320px; }
+.ah-img { height: 320px; border-radius: 16px; overflow: hidden; }
+.ah-img img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ── WHY NOW ── */
 #why-now { background: var(--white); }
@@ -78,8 +79,7 @@ section { padding: 64px 40px; }
 
 /* ── APPEAL ── */
 #appeal { background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
-.appeal-wrap { display: grid; grid-template-columns: 400px 1fr; gap: 48px; align-items: center; margin-top: 40px; }
-.appeal-img { height: 320px; }
+.appeal-wrap { margin-top: 40px; }
 .appeal-points { display: flex; flex-direction: column; gap: 20px; }
 .appeal-point { display: flex; gap: 16px; align-items: flex-start; }
 .ap-num { width: 40px; height: 40px; background: var(--pri); color: #fff; border-radius: 50%; font-size: 16px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -102,7 +102,8 @@ section { padding: 64px 40px; }
 .prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
 .prog-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); text-decoration: none; color: var(--txt); transition: transform .15s; display: block; }
 .prog-card:hover { transform: translateY(-3px); }
-.prog-img { height: 140px; }
+.prog-img { height: 140px; overflow: hidden; }
+.prog-img img { width: 100%; height: 100%; object-fit: cover; }
 .prog-info { padding: 20px; }
 .prog-badge { display: inline-block; background: var(--bg1); color: var(--pri); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; margin-bottom: 10px; }
 .prog-name { font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--txt); }
@@ -167,22 +168,19 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
 </head>
 <body>
 
-<div class="wf-bar">WIREFRAME ― 年代別ページテンプレート（大学生を代表例として表示）</div>
-
 <header>
-  <a href="wireframe.html" class="logo">くまもと留学室</a>
+  <a href="index.html" class="logo">くまもと留学室</a>
   <nav>
-    <a href="wireframe.html#programs">国から探す</a>
-    <a href="wireframe.html#programs">目的別</a>
-    <a href="wireframe.html#programs">年代別</a>
-    <a href="wireframe.html#faq">よくある質問</a>
-    <a href="wireframe.html#founder">代表について</a>
+    <a href="index.html#programs">国から探す</a>
+    <a href="wireframe-purpose.html">目的別</a>
+    <a href="index.html#faq">よくある質問</a>
+    <a href="story.html">代表について</a>
   </nav>
-  <button class="header-cta">無料相談</button>
+  <button class="header-cta" onclick="location.href='https://lin.ee/tZyufz4'">無料相談</button>
 </header>
 
 <div class="breadcrumb">
-  <a href="wireframe.html">トップ</a> ＞ <a href="wireframe.html#programs">年代から探す</a> ＞ 大学生
+  <a href="index.html">トップ</a> ＞ <a href="index.html#age">年代から探す</a> ＞ 大学生
 </div>
 
 <nav class="age-nav">
@@ -211,7 +209,9 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
       <button class="btn-sub">資料を受け取る</button>
     </div>
   </div>
-  <div class="ah-img img-placeholder">大学生留学イメージ写真<br>（現地での様子・友人との交流）</div>
+  <div class="ah-img">
+    <img src="images/hikari-story.jpg" alt="大学生留学イメージ" loading="lazy" />
+  </div>
 </section>
 
 <!-- WHY NOW -->
@@ -222,7 +222,7 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
     <div class="why-card">
       <div class="why-icon">⏰</div>
       <div class="why-title">まとまった時間が取れる</div>
-      <div class="why-body">大学生は長期休暇を使って1〜6ヶ月の留学が可能。社会人になると難しい「まとまった時間」を最大限に活かせます。</div>
+      <div class="why-body">大学生は長期休暇を使って1〜12ヶ月の留学が可能。社会人になると難しい「まとまった時間」を最大限に活かせます。</div>
     </div>
     <div class="why-card">
       <div class="why-icon">🧠</div>
@@ -242,7 +242,6 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
   <div class="sec-label">WHAT YOU GET</div>
   <h2 class="sec-title">大学生が留学で得られるもの</h2>
   <div class="appeal-wrap">
-    <div class="appeal-img img-placeholder">現地での活動写真</div>
     <div class="appeal-points">
       <div class="appeal-point">
         <div class="ap-num">1</div>
@@ -272,7 +271,6 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
           <div class="ap-body">「なぜ留学したか」「何を得たか」「どう活かすか」——このストーリーは、就活の面接で何度でも語れる強力な武器になります。</div>
         </div>
       </div>
-    </div>
   </div>
 </section>
 
@@ -350,8 +348,8 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
   <h2 class="sec-title">大学生におすすめのプログラム</h2>
   <p class="sec-sub">目的・期間・予算に合わせて選べます。</p>
   <div class="prog-grid">
-    <a href="wireframe-purpose.html" class="prog-card">
-      <div class="prog-img img-placeholder">短期留学イメージ</div>
+    <a href="short.html" class="prog-card">
+      <div class="prog-img"><img src="images/cebu-school-1.jpg" alt="短期留学" loading="lazy" /></div>
       <div class="prog-info">
         <div class="prog-badge">夏休み・春休みに最適</div>
         <div class="prog-name">短期語学留学</div>
@@ -363,7 +361,7 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
       </div>
     </a>
     <a href="wireframe-purpose.html" class="prog-card">
-      <div class="prog-img img-placeholder">長期留学イメージ</div>
+      <div class="prog-img"><img src="images/hawaii-school-groupclass.jpg" alt="長期留学" loading="lazy" /></div>
       <div class="prog-info">
         <div class="prog-badge">就活前におすすめ</div>
         <div class="prog-name">長期語学留学</div>
@@ -374,10 +372,10 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
         <div class="prog-btn">詳しく見る →</div>
       </div>
     </a>
-    <a href="wireframe-purpose.html" class="prog-card">
-      <div class="prog-img img-placeholder">インターンイメージ</div>
+    <a href="intern.html" class="prog-card">
+      <div class="prog-img"><img src="images/danang-intern2.jpg" alt="海外インターンシップ" loading="lazy" /></div>
       <div class="prog-info">
-        <div class="prog-badge">大学生に人気 No.1</div>
+        <div class="prog-badge">周りと差をつけたいなら</div>
         <div class="prog-name">海外インターンシップ</div>
         <div class="prog-meta">
           <span>📅 1〜3ヶ月</span>
@@ -493,8 +491,8 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
   <h2 class="cta-h2">大学生の今、一歩踏み出しませんか？</h2>
   <p class="cta-sub">「行きたいけど迷ってる」段階でのご相談も大歓迎。費用は一切かかりません。</p>
   <div class="cta-btns">
-    <button class="cta-btn-main">💬 LINEで相談する</button>
-    <button class="cta-btn-sub">📄 無料資料を請求する</button>
+    <button class="cta-btn-main" onclick="location.href='https://lin.ee/tZyufz4'">💬 LINEで相談する</button>
+    <button class="cta-btn-sub" onclick="location.href='index.html#contact'">📄 無料資料を請求する</button>
   </div>
 </section>
 
@@ -505,10 +503,10 @@ footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; fon
       <div>© 2025 くまもと留学室</div>
     </div>
     <nav class="footer-nav">
-      <a href="wireframe.html">トップ</a>
-      <a href="wireframe.html#programs">プログラム</a>
-      <a href="wireframe.html#contact">お問い合わせ</a>
-      <a href="wireframe.html#faq">よくある質問</a>
+      <a href="index.html">トップ</a>
+      <a href="index.html#programs">プログラム</a>
+      <a href="index.html#contact">お問い合わせ</a>
+      <a href="index.html#faq">よくある質問</a>
     </nav>
   </div>
 </footer>
