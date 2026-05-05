@@ -73,11 +73,16 @@
     #hero {
       height: 100vh; min-height: 600px;
       position: relative;
-      background: url('images/hero.jpg') center/cover no-repeat;
       display: flex; align-items: center; justify-content: flex-end;
     }
+    #hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('images/hero.jpg') center/cover no-repeat;
+      filter: brightness(1.45) saturate(1.8) contrast(1.05);
+      z-index: 0;
+    }
     .hero-overlay {
-      position: absolute; inset: 0;
+      position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(to left, rgba(10,20,40,.88) 0%, rgba(10,20,40,.60) 45%, rgba(10,20,40,.05) 100%);
     }
     .hero-content {
