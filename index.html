@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="株式会社WABITABI — 自分らしく、いきいきした日本人を増やす" />
+  <title>株式会社WABITABI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER / NAVIGATION
+       ロゴ画像: images/logo.svg または images/logo.png に配置
+       ============================================================ -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <!-- ロゴ画像を使う場合: <img src="images/logo.svg" alt="WABITABI" /> -->
+        <span class="logo-text">WABITABI</span>
+        <span class="logo-sub">株式会社</span>
+      </a>
+      <nav class="global-nav" id="global-nav" aria-label="グローバルナビゲーション">
+        <ul>
+          <li><a href="#mission">MISSION</a></li>
+          <li><a href="#services">事業紹介</a></li>
+          <li><a href="#features">特徴</a></li>
+          <li><a href="#news">NEWS</a></li>
+          <li><a href="#company">会社概要</a></li>
+          <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       HERO SECTION
+       背景画像: images/hero-bg.jpg に配置（推奨: 1920×1080px 以上）
+       メインコピーとサブコピーを編集してください
+       ============================================================ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <!-- 背景画像または動画をここに配置 -->
+      <!-- <img src="images/hero-bg.jpg" alt="" class="hero-img" /> -->
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-tag"><!-- タグライン例: "海外へ、自分へ、未来へ。" -->[タグライン]</p>
+      <h1 class="hero-title">
+        <!-- メインキャッチコピーを記入 -->
+        [メインキャッチコピー<br />2〜3行程度]
+      </h1>
+      <p class="hero-desc">
+        <!-- サブコピー・リード文を記入（50〜80文字程度） -->
+        [サブコピー。会社・サービスの魅力を一言で伝えるリード文をここに記入します。]
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn btn-primary">事業を見る</a>
+        <a href="#contact" class="btn btn-outline-light">お問い合わせ</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       MISSION SECTION
+       会社のミッション・ビジョン・バリュー
+       ============================================================ -->
+  <section class="section mission-section" id="mission">
+    <div class="container">
+      <div class="section-label">MISSION</div>
+      <div class="mission-layout">
+        <div class="mission-main">
+          <h2 class="mission-statement">
+            自分らしく、いきいきした<br />日本人を増やす。
+          </h2>
+          <p class="mission-desc">
+            <!-- ミッションの背景・想いを記入（100〜200文字程度） -->
+            [ミッションに込めた想い・背景ストーリーをここに記入します。なぜこのミッションを掲げたのか、どんな社会を目指しているのかを伝える文章（100〜200文字）を記入してください。]
+          </p>
+        </div>
+        <div class="mission-values">
+          <div class="value-card">
+            <div class="value-icon">🌿</div>
+            <h3 class="value-title">VISION</h3>
+            <!-- ビジョンを記入 -->
+            <p>[ビジョン（目指す姿）を記入]</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">✨</div>
+            <h3 class="value-title">VALUE</h3>
+            <!-- バリューを記入 -->
+            <p>[大切にしている価値観・行動指針を記入]</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌏</div>
+            <h3 class="value-title">COMMITMENT</h3>
+            <!-- コミットメントを記入 -->
+            <p>[お客様・社会へのコミットメントを記入]</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SERVICES SECTION
+       事業紹介：wellbeing留学 / くまもと留学室
+       各事業の画像: images/service-wellbeing.jpg / images/service-kumamoto.jpg
+       ============================================================ -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-label">SERVICES</div>
+      <h2 class="section-title">事業紹介</h2>
+      <p class="section-desc">
+        <!-- 事業紹介セクションの導入文（50〜80文字程度） -->
+        [事業紹介セクションの導入文をここに記入します。]
+      </p>
+
+      <!-- 事業 1: wellbeing留学 -->
+      <div class="service-block service-block--alt" id="wellbeing">
+        <div class="service-image">
+          <div class="service-image-placeholder">
+            <!-- <img src="images/service-wellbeing.jpg" alt="wellbeing留学" /> -->
+            <span>画像: wellbeing留学<br />推奨サイズ: 800×600px</span>
+          </div>
+          <div class="service-badge badge--sky">女性向け海外研修</div>
+        </div>
+        <div class="service-body">
+          <div class="service-number">01</div>
+          <h3 class="service-name">wellbeing留学</h3>
+          <p class="service-tagline">
+            <!-- 事業のキャッチフレーズを記入 -->
+            [wellbeing留学のキャッチフレーズ・一文を記入]
+          </p>
+          <p class="service-desc">
+            <!-- 事業説明（150〜250文字程度） -->
+            [wellbeing留学の詳しい説明文をここに記入します。ターゲット（女性向け）、プログラムの内容、得られる体験・変化などを伝える文章（150〜250文字）を記入してください。]
+          </p>
+          <ul class="service-points">
+            <li><!-- 特徴・ポイント 1 -->[特徴・ポイント 1]</li>
+            <li><!-- 特徴・ポイント 2 -->[特徴・ポイント 2]</li>
+            <li><!-- 特徴・ポイント 3 -->[特徴・ポイント 3]</li>
+          </ul>
+          <a href="#" class="btn btn-primary">詳しく見る</a>
+        </div>
+      </div>
+
+      <!-- 事業 2: くまもと留学室 -->
+      <div class="service-block" id="kumamoto">
+        <div class="service-image">
+          <div class="service-image-placeholder">
+            <!-- <img src="images/service-kumamoto.jpg" alt="くまもと留学室" /> -->
+            <span>画像: くまもと留学室<br />推奨サイズ: 800×600px</span>
+          </div>
+          <div class="service-badge badge--green">熊本発・地域密着</div>
+        </div>
+        <div class="service-body">
+          <div class="service-number">02</div>
+          <h3 class="service-name">くまもと留学室</h3>
+          <p class="service-tagline">
+            <!-- 事業のキャッチフレーズを記入 -->
+            [くまもと留学室のキャッチフレーズ・一文を記入]
+          </p>
+          <p class="service-desc">
+            <!-- 事業説明（150〜250文字程度） -->
+            [くまもと留学室の詳しい説明文をここに記入します。熊本を拠点にした留学サポートの内容、対象者、サービスの特徴などを伝える文章（150〜250文字）を記入してください。]
+          </p>
+          <ul class="service-points">
+            <li><!-- 特徴・ポイント 1 -->[特徴・ポイント 1]</li>
+            <li><!-- 特徴・ポイント 2 -->[特徴・ポイント 2]</li>
+            <li><!-- 特徴・ポイント 3 -->[特徴・ポイント 3]</li>
+          </ul>
+          <a href="#" class="btn btn-secondary">詳しく見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FEATURES SECTION
+       WABITABIを選ぶ理由・強み
+       アイコン: 絵文字またはSVGに差し替え可能
+       ============================================================ -->
+  <section class="section features-section" id="features">
+    <div class="container">
+      <div class="section-label">WHY WABITABI</div>
+      <h2 class="section-title">選ばれる理由</h2>
+      <p class="section-desc">
+        [選ばれる理由セクションの導入文をここに記入します。]
+      </p>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3 class="feature-title"><!-- 強み 1 タイトル -->[強み 1]</h3>
+          <p><!-- 強み 1 説明（50〜80文字） -->[強み 1 の説明文をここに記入します。具体的な数字や実績を入れると説得力が増します。]</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🤝</div>
+          <h3 class="feature-title"><!-- 強み 2 タイトル -->[強み 2]</h3>
+          <p><!-- 強み 2 説明 -->[強み 2 の説明文をここに記入します。]</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💡</div>
+          <h3 class="feature-title"><!-- 強み 3 タイトル -->[強み 3]</h3>
+          <p><!-- 強み 3 説明 -->[強み 3 の説明文をここに記入します。]</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🌸</div>
+          <h3 class="feature-title"><!-- 強み 4 タイトル -->[強み 4]</h3>
+          <p><!-- 強み 4 説明 -->[強み 4 の説明文をここに記入します。]</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       NUMBERS SECTION（任意）
+       実績・数字で見るWABITABI
+       数字が揃ったら入力してください
+       ============================================================ -->
+  <section class="section numbers-section">
+    <div class="container">
+      <div class="section-label">NUMBERS</div>
+      <h2 class="section-title">数字で見るWABITABI</h2>
+      <div class="numbers-grid">
+        <div class="number-item">
+          <span class="number-value"><!-- 数値 -->__</span>
+          <span class="number-unit"><!-- 単位 -->名</span>
+          <p class="number-label"><!-- ラベル -->[累計参加者数など]</p>
+        </div>
+        <div class="number-item">
+          <span class="number-value">__</span>
+          <span class="number-unit">カ国</span>
+          <p class="number-label">[対応国数など]</p>
+        </div>
+        <div class="number-item">
+          <span class="number-value">__</span>
+          <span class="number-unit">%</span>
+          <p class="number-label">[満足度など]</p>
+        </div>
+        <div class="number-item">
+          <span class="number-value">__</span>
+          <span class="number-unit">年</span>
+          <p class="number-label">[創業年数など]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       VOICE SECTION（任意）
+       参加者の声・お客様の声
+       写真: images/voice-01.jpg など
+       ============================================================ -->
+  <section class="section voice-section">
+    <div class="container">
+      <div class="section-label">VOICE</div>
+      <h2 class="section-title">参加者の声</h2>
+      <div class="voice-grid">
+
+        <div class="voice-card">
+          <p class="voice-text">
+            <!-- 参加者コメント（60〜100文字程度） -->
+            「[参加者のコメントをここに記入します。具体的なエピソードや変化を書くと共感を得やすいです。]」
+          </p>
+          <div class="voice-author">
+            <div class="voice-avatar">
+              <!-- <img src="images/voice-01.jpg" alt="" /> -->
+              <div class="avatar-placeholder"></div>
+            </div>
+            <div class="voice-info">
+              <strong><!-- 名前 -->[氏名]</strong>
+              <span><!-- 属性 例: 20代・女性・会社員 -->[属性]</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="voice-card">
+          <p class="voice-text">
+            「[参加者のコメント 2 をここに記入します。]」
+          </p>
+          <div class="voice-author">
+            <div class="voice-avatar">
+              <div class="avatar-placeholder"></div>
+            </div>
+            <div class="voice-info">
+              <strong>[氏名]</strong>
+              <span>[属性]</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="voice-card">
+          <p class="voice-text">
+            「[参加者のコメント 3 をここに記入します。]」
+          </p>
+          <div class="voice-author">
+            <div class="voice-avatar">
+              <div class="avatar-placeholder"></div>
+            </div>
+            <div class="voice-info">
+              <strong>[氏名]</strong>
+              <span>[属性]</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       NEWS SECTION
+       お知らせ・ブログ記事など
+       記事が増えたら <li> を追加してください
+       ============================================================ -->
+  <section class="section news-section" id="news">
+    <div class="container">
+      <div class="section-label">NEWS</div>
+      <h2 class="section-title">お知らせ</h2>
+      <ul class="news-list">
+        <li class="news-item">
+          <time class="news-date" datetime="2026-01-01"><!-- 日付 -->2026.00.00</time>
+          <span class="news-category cat--info">お知らせ</span>
+          <a href="#" class="news-title"><!-- 記事タイトル -->[記事・お知らせのタイトルをここに記入]</a>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-01-01">2026.00.00</time>
+          <span class="news-category cat--event">イベント</span>
+          <a href="#" class="news-title">[記事・お知らせのタイトルをここに記入]</a>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-01-01">2026.00.00</time>
+          <span class="news-category cat--media">メディア掲載</span>
+          <a href="#" class="news-title">[記事・お知らせのタイトルをここに記入]</a>
+        </li>
+        <li class="news-item">
+          <time class="news-date" datetime="2026-01-01">2026.00.00</time>
+          <span class="news-category cat--info">お知らせ</span>
+          <a href="#" class="news-title">[記事・お知らせのタイトルをここに記入]</a>
+        </li>
+      </ul>
+      <div class="section-action">
+        <a href="#" class="btn btn-outline">一覧を見る</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       COMPANY SECTION
+       会社概要
+       ============================================================ -->
+  <section class="section company-section" id="company">
+    <div class="container">
+      <div class="section-label">COMPANY</div>
+      <h2 class="section-title">会社概要</h2>
+      <div class="company-layout">
+        <div class="company-image">
+          <div class="company-image-placeholder">
+            <!-- <img src="images/office.jpg" alt="オフィス" /> -->
+            <span>画像: オフィス・代表写真など<br />推奨サイズ: 600×800px</span>
+          </div>
+        </div>
+        <div class="company-table-wrap">
+          <table class="company-table">
+            <tbody>
+              <tr>
+                <th>会社名</th>
+                <td>株式会社WABITABI</td>
+              </tr>
+              <tr>
+                <th>設立</th>
+                <td><!-- 設立年月日 -->[設立年月日]</td>
+              </tr>
+              <tr>
+                <th>代表者</th>
+                <td><!-- 代表取締役名 -->[代表取締役氏名]</td>
+              </tr>
+              <tr>
+                <th>所在地</th>
+                <td>
+                  <!-- 住所 -->
+                  〒[郵便番号]<br />
+                  [都道府県・市区町村・番地]<br />
+                  [建物名・階数など]
+                </td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td><!-- TEL -->[電話番号]</td>
+              </tr>
+              <tr>
+                <th>メール</th>
+                <td><!-- Email -->[メールアドレス]</td>
+              </tr>
+              <tr>
+                <th>事業内容</th>
+                <td>
+                  wellbeing留学（女性向け海外研修プログラム）<br />
+                  くまもと留学室の運営<br />
+                  <!-- その他の事業があれば追記 -->
+                  [その他の事業があれば追記]
+                </td>
+              </tr>
+              <tr>
+                <th>資本金</th>
+                <td><!-- 資本金 -->[資本金]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT SECTION
+       お問い合わせ
+       フォームの送信先は js/main.js または外部フォームサービスに設定
+       ============================================================ -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="section-label">CONTACT</div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-desc">
+        <!-- お問い合わせ案内文（50〜100文字） -->
+        [お問い合わせの案内文をここに記入します。返信にかかる目安日数なども記載するとよいでしょう。]
+      </p>
+
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">お名前 <span class="required">必須</span></label>
+            <input type="text" id="name" name="name" placeholder="山田 花子" required />
+          </div>
+          <div class="form-group">
+            <label for="company">会社名・所属</label>
+            <input type="text" id="company" name="company" placeholder="株式会社〇〇（任意）" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">メールアドレス <span class="required">必須</span></label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">電話番号</label>
+            <input type="tel" id="phone" name="phone" placeholder="000-0000-0000（任意）" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">お問い合わせ種別 <span class="required">必須</span></label>
+          <select id="subject" name="subject" required>
+            <option value="">選択してください</option>
+            <option value="wellbeing">wellbeing留学について</option>
+            <option value="kumamoto">くまもと留学室について</option>
+            <option value="media">メディア・取材について</option>
+            <option value="partner">パートナーシップについて</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+          <textarea id="message" name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+        </div>
+        <div class="form-group form-privacy">
+          <label class="checkbox-label">
+            <input type="checkbox" name="privacy" required />
+            <span><a href="#" target="_blank">プライバシーポリシー</a>に同意する</span>
+          </label>
+        </div>
+        <div class="form-action">
+          <button type="submit" class="btn btn-primary btn-lg">送信する</button>
+        </div>
+        <div class="form-message" id="form-message" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       SNSリンク・各種リンクを追加してください
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo logo--white">
+          <span class="logo-text">WABITABI</span>
+          <span class="logo-sub">株式会社</span>
+        </a>
+        <p class="footer-mission">自分らしく、いきいきした日本人を増やす。</p>
+        <div class="footer-sns">
+          <!-- SNSリンクを追加してください -->
+          <a href="#" aria-label="Instagram" class="sns-link">
+            <!-- Instagram SVGアイコンに差し替え可能 -->
+            <span class="sns-icon">Instagram</span>
+          </a>
+          <a href="#" aria-label="Facebook" class="sns-link">
+            <span class="sns-icon">Facebook</span>
+          </a>
+          <a href="#" aria-label="X (Twitter)" class="sns-link">
+            <span class="sns-icon">X</span>
+          </a>
+        </div>
+      </div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <div class="footer-nav-col">
+          <p class="footer-nav-heading">事業</p>
+          <ul>
+            <li><a href="#wellbeing">wellbeing留学</a></li>
+            <li><a href="#kumamoto">くまもと留学室</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-nav-heading">会社情報</p>
+          <ul>
+            <li><a href="#mission">MISSION</a></li>
+            <li><a href="#company">会社概要</a></li>
+            <li><a href="#news">お知らせ</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-nav-heading">その他</p>
+          <ul>
+            <li><a href="#">プライバシーポリシー</a></li>
+            <li><a href="#">特定商取引法に基づく表記</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> 株式会社WABITABI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
