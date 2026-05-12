@@ -1,0 +1,38 @@
+/* ============================================================
+   THEME 01 — 海と森
+   水色 × 深緑 × オレンジ
+   グローバル感 × 熊本の自然 × 明るい未来
+   ============================================================ */
+:root {
+  /* Brand Colors */
+  --sky:         #5BC4E8;
+  --sky-light:   #EAF7FD;
+  --sky-dark:    #2EA8D0;
+
+  --forest:      #1C4A35;
+  --green:       #3D8B6F;
+  --green-light: #EBF5F0;
+  --green-pale:  #D0EBE1;
+
+  --yellow:      #FFD166;
+  --orange:      #F4845F;
+  --orange-dark: #E06040;
+
+  --white:       #FFFFFF;
+  --off-white:   #F7F9FB;
+  --gray-100:    #F0F2F5;
+  --gray-200:    #E2E6EB;
+  --gray-400:    #9BA8B4;
+  --gray-600:    #5C6B78;
+  --gray-800:    #2C3A45;
+  --black:       #111820;
+
+  /* Hero gradient */
+  --hero-gradient: linear-gradient(135deg, #1C4A35 0%, #3D8B6F 50%, #2EA8D0 100%);
+  --hero-overlay:  linear-gradient(135deg, rgba(28,74,53,.78) 0%, rgba(91,196,232,.35) 100%);
+
+  /* Section accent backgrounds */
+  --bg-accent-1: var(--off-white);
+  --bg-accent-2: linear-gradient(180deg, var(--green-light) 0%, var(--off-white) 100%);
+  --bg-accent-3: var(--sky-light);
+}

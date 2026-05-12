@@ -1,0 +1,38 @@
+/* ============================================================
+   THEME 02 — 南国リゾート
+   ターコイズ × サンドベージュ × コーラル × ゴールド
+   バリ・セブのような開放感 × 女性向け × 明るいエネルギー
+   ============================================================ */
+:root {
+  /* Brand Colors */
+  --sky:         #00B4D8;   /* ターコイズ */
+  --sky-light:   #E6F9FD;
+  --sky-dark:    #0096B7;
+
+  --forest:      #1A5C6B;   /* ディープティール */
+  --green:       #2B9EB3;
+  --green-light: #D6F2F8;
+  --green-pale:  #A8E4EE;
+
+  --yellow:      #FFB703;   /* ゴールド */
+  --orange:      #FF6B6B;   /* コーラル */
+  --orange-dark: #E55252;
+
+  --white:       #FFFFFF;
+  --off-white:   #FAF5EE;   /* サンドベージュ */
+  --gray-100:    #F3EDE3;
+  --gray-200:    #E8DFD0;
+  --gray-400:    #A8998A;
+  --gray-600:    #6B5C50;
+  --gray-800:    #3A2E28;
+  --black:       #1A120D;
+
+  /* Hero gradient */
+  --hero-gradient: linear-gradient(135deg, #1A5C6B 0%, #00B4D8 55%, #0AD1A6 100%);
+  --hero-overlay:  linear-gradient(135deg, rgba(26,92,107,.75) 0%, rgba(0,180,216,.30) 100%);
+
+  /* Section accent backgrounds */
+  --bg-accent-1: var(--off-white);
+  --bg-accent-2: linear-gradient(180deg, var(--green-light) 0%, var(--off-white) 100%);
+  --bg-accent-3: var(--sky-light);
+}
