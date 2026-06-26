@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カラー比較 — くまもと留学相談室</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  background: #1a1a1a;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ページヘッダー */
+.page-header {
+  padding: 40px;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+.page-header h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; letter-spacing: .05em; }
+.page-header p { font-size: 13px; color: #888; }
+
+/* タブナビ */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 24px 40px 0;
+  flex-wrap: wrap;
+}
+.tab {
+  padding: 10px 22px;
+  border-radius: 40px;
+  border: 1px solid #444;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+  color: #ccc;
+  background: transparent;
+}
+.tab:hover { border-color: #888; color: #fff; }
+.tab.active { color: #000; border-color: transparent; }
+
+/* メインコンテンツ */
+.patterns {
+  padding: 32px 40px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* 各パターンブロック */
+.pattern-block { display: none; }
+.pattern-block.active { display: block; }
+
+/* 上段：カラーパレット＋コンセプト */
+.top-row {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: start;
+}
+
+/* コンセプトカード */
+.concept-card {
+  background: #242424;
+  border-radius: 12px;
+  padding: 28px;
+}
+.concept-num { font-size: 11px; letter-spacing: .15em; color: #666; margin-bottom: 8px; font-weight: 700; }
+.concept-name { font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+.concept-desc { font-size: 13px; color: #aaa; line-height: 1.8; margin-bottom: 20px; }
+.concept-keywords { display: flex; gap: 6px; flex-wrap: wrap; }
+.kw { font-size: 11px; background: #333; color: #bbb; padding: 4px 12px; border-radius: 20px; }
+
+/* カラーパレット */
+.palette-card {
+  background: #242424;
+  border-radius: 12px;
+  padding: 28px;
+}
+.palette-title { font-size: 11px; letter-spacing: .12em; color: #666; font-weight: 700; margin-bottom: 16px; }
+.palette-row {
+  display: flex;
+  gap: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  height: 80px;
+}
+.palette-block { flex: 1; }
+.palette-chips { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.chip { display: flex; align-items: center; gap: 10px; }
+.chip-swatch { width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0; border: 1px solid rgba(255,255,255,.06); }
+.chip-info { }
+.chip-role { font-size: 10px; color: #666; font-weight: 700; letter-spacing: .05em; }
+.chip-hex { font-size: 12px; color: #ccc; font-family: monospace; }
+
+/* プレビュー */
+.preview-label {
+  font-size: 11px; letter-spacing: .12em; color: #666; font-weight: 700; margin-bottom: 12px;
+}
+.preview-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,.5);
+}
+
+/* UI要素共通 */
+.ui-label { font-size: 10px; color: #888; font-weight: 700; letter-spacing: .08em; }
+
+/* ===== PATTERN 02: ディープグリーン×アンバー ===== */
+.p2 { --pri: #1a5c3a; --acc: #f5a623; --bg1: #faf8f3; --bg2: #fff; --txt: #1a2e1f; --sub: #4a6b50; }
+
+.p2-nav-bar { background: var(--bg2); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid var(--pri); }
+.p2-nav-logo { color: var(--pri); font-size: 16px; font-weight: 700; }
+.p2-nav-links { display: flex; gap: 20px; }
+.p2-nav-links a { color: var(--pri); font-size: 12px; text-decoration: none; opacity: .8; }
+.p2-nav-cta { background: var(--pri); color: #fff; border: none; padding: 8px 18px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+.p2-hero { background: var(--bg1); padding: 60px 32px; display: flex; gap: 40px; align-items: center; }
+.p2-hero-left { flex: 1; }
+.p2-hero-badge { display: inline-block; background: var(--pri); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px; }
+.p2-hero-h1 { font-size: 32px; font-weight: 700; color: var(--txt); line-height: 1.4; margin-bottom: 14px; }
+.p2-hero-sub { font-size: 14px; color: var(--sub); margin-bottom: 24px; line-height: 1.8; }
+.p2-hero-btns { display: flex; gap: 12px; }
+.p2-btn-main { background: var(--acc); color: #fff; border: none; padding: 14px 28px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 6px; }
+.p2-btn-sub { background: transparent; color: var(--pri); border: 2px solid var(--pri); padding: 14px 24px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 6px; }
+.p2-hero-img { width: 360px; height: 240px; background: #c8e0d0; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--pri); font-size: 13px; flex-shrink: 0; }
+
+.p2-reason-bar { background: var(--bg2); padding: 32px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.p2-reason { background: var(--bg1); border-radius: 8px; padding: 20px; border-left: 4px solid var(--pri); }
+.p2-reason-title { font-size: 14px; font-weight: 700; color: var(--txt); margin-bottom: 6px; }
+.p2-reason-body { font-size: 12px; color: var(--sub); }
+
+.p2-cta-bar { background: var(--pri); padding: 40px 32px; display: flex; align-items: center; justify-content: space-between; }
+.p2-cta-text { color: #fff; }
+.p2-cta-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.p2-cta-text p { font-size: 13px; opacity: .8; }
+.p2-cta-btn { background: var(--acc); color: #fff; border: none; padding: 16px 32px; font-size: 15px; font-weight: 700; cursor: pointer; border-radius: 6px; flex-shrink: 0; }
+
+/* ===== PATTERN 04: ウォームネイビー×テラコッタ ===== */
+.p4 { --pri: #2b3a67; --acc: #e8634a; --bg1: #fefdf8; --bg2: #fff; --txt: #2b3a67; --sub: #5a6a9a; }
+
+.p4-nav-bar { background: var(--pri); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.p4-nav-logo { color: #fff; font-size: 16px; font-weight: 700; }
+.p4-nav-links { display: flex; gap: 20px; }
+.p4-nav-links a { color: rgba(255,255,255,.75); font-size: 12px; text-decoration: none; }
+.p4-nav-cta { background: var(--acc); color: #fff; border: none; padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+.p4-hero { background: var(--bg1); padding: 60px 32px; display: flex; gap: 40px; align-items: center; }
+.p4-hero-left { flex: 1; }
+.p4-hero-badge { display: inline-block; background: var(--acc); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 4px; margin-bottom: 16px; }
+.p4-hero-h1 { font-size: 32px; font-weight: 700; color: var(--txt); line-height: 1.4; margin-bottom: 14px; }
+.p4-hero-sub { font-size: 14px; color: var(--sub); margin-bottom: 24px; line-height: 1.8; }
+.p4-hero-btns { display: flex; gap: 12px; }
+.p4-btn-main { background: var(--pri); color: #fff; border: none; padding: 14px 28px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 6px; }
+.p4-btn-sub { background: transparent; color: var(--acc); border: 2px solid var(--acc); padding: 14px 24px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 6px; }
+.p4-hero-img { width: 360px; height: 240px; background: #c8cedf; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--pri); font-size: 13px; flex-shrink: 0; }
+
+.p4-reason-bar { background: var(--bg2); padding: 32px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.p4-reason { background: var(--bg1); border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(43,58,103,.08); }
+.p4-reason-title { font-size: 14px; font-weight: 700; color: var(--txt); margin-bottom: 6px; }
+.p4-reason-body { font-size: 12px; color: var(--sub); }
+
+.p4-cta-bar { background: var(--pri); padding: 40px 32px; display: flex; align-items: center; justify-content: space-between; }
+.p4-cta-text { color: #fff; }
+.p4-cta-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.p4-cta-text p { font-size: 13px; opacity: .8; }
+.p4-cta-btn { background: var(--acc); color: #fff; border: none; padding: 16px 32px; font-size: 15px; font-weight: 700; cursor: pointer; border-radius: 20px; flex-shrink: 0; }
+
+/* ===== PATTERN 05: チャコール×エメラルド ===== */
+.p5 { --pri: #2c3e50; --acc: #27ae60; --bg1: #f9f9f9; --bg2: #fff; --txt: #1a252f; --sub: #5d6d7e; }
+
+.p5-nav-bar { background: var(--pri); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; }
+.p5-nav-logo { color: #fff; font-size: 16px; font-weight: 700; letter-spacing: .04em; }
+.p5-nav-links { display: flex; gap: 20px; }
+.p5-nav-links a { color: rgba(255,255,255,.7); font-size: 12px; text-decoration: none; }
+.p5-nav-cta { background: var(--acc); color: #fff; border: none; padding: 8px 18px; border-radius: 4px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+.p5-hero { background: var(--bg1); padding: 60px 32px; display: flex; gap: 40px; align-items: center; }
+.p5-hero-left { flex: 1; }
+.p5-hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #eafaf1; color: var(--acc); font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 4px; margin-bottom: 16px; border: 1px solid #a9dfbf; }
+.p5-hero-h1 { font-size: 32px; font-weight: 700; color: var(--txt); line-height: 1.4; margin-bottom: 14px; }
+.p5-hero-sub { font-size: 14px; color: var(--sub); margin-bottom: 24px; line-height: 1.8; }
+.p5-hero-btns { display: flex; gap: 12px; }
+.p5-btn-main { background: var(--acc); color: #fff; border: none; padding: 14px 28px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 4px; }
+.p5-btn-sub { background: transparent; color: var(--pri); border: 2px solid var(--pri); padding: 14px 24px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 4px; }
+.p5-hero-img { width: 360px; height: 240px; background: #c8e6d4; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--pri); font-size: 13px; flex-shrink: 0; }
+
+.p5-reason-bar { background: var(--bg2); padding: 32px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.p5-reason { background: var(--bg1); border-radius: 6px; padding: 20px; border-bottom: 3px solid var(--acc); }
+.p5-reason-title { font-size: 14px; font-weight: 700; color: var(--txt); margin-bottom: 6px; }
+.p5-reason-body { font-size: 12px; color: var(--sub); }
+
+.p5-cta-bar { background: var(--pri); padding: 40px 32px; display: flex; align-items: center; justify-content: space-between; }
+.p5-cta-text { color: #fff; }
+.p5-cta-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.p5-cta-text p { font-size: 13px; opacity: .8; }
+.p5-cta-btn { background: var(--acc); color: #fff; border: none; padding: 16px 32px; font-size: 15px; font-weight: 700; cursor: pointer; border-radius: 4px; flex-shrink: 0; }
+
+/* ===== PATTERN 06: スレートブルー×サンライズ ===== */
+.p6 { --pri: #3d5a80; --acc: #f4a261; --bg1: #e8eef7; --bg2: #fff; --txt: #293241; --sub: #5a7099; }
+
+.p6-nav-bar { background: var(--bg2); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #dde5f0; }
+.p6-nav-logo { color: var(--pri); font-size: 16px; font-weight: 700; }
+.p6-nav-links { display: flex; gap: 20px; }
+.p6-nav-links a { color: var(--pri); font-size: 12px; text-decoration: none; opacity: .8; }
+.p6-nav-cta { background: var(--acc); color: #fff; border: none; padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+.p6-hero { background: linear-gradient(150deg, var(--bg1) 0%, #fef5ec 100%); padding: 60px 32px; display: flex; gap: 40px; align-items: center; }
+.p6-hero-left { flex: 1; }
+.p6-hero-badge { display: inline-block; background: var(--pri); color: #fff; font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px; }
+.p6-hero-h1 { font-size: 32px; font-weight: 700; color: var(--txt); line-height: 1.4; margin-bottom: 14px; }
+.p6-hero-sub { font-size: 14px; color: var(--sub); margin-bottom: 24px; line-height: 1.8; }
+.p6-hero-btns { display: flex; gap: 12px; }
+.p6-btn-main { background: var(--acc); color: #fff; border: none; padding: 14px 28px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 20px; }
+.p6-btn-sub { background: transparent; color: var(--pri); border: 2px solid var(--pri); padding: 14px 24px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 20px; }
+.p6-hero-img { width: 360px; height: 240px; background: #c0d0e8; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--pri); font-size: 13px; flex-shrink: 0; }
+
+.p6-reason-bar { background: var(--bg2); padding: 32px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.p6-reason { background: #fff; border-radius: 14px; padding: 20px; box-shadow: 0 2px 12px rgba(61,90,128,.10); border: 1px solid #dde5f0; }
+.p6-reason-title { font-size: 14px; font-weight: 700; color: var(--txt); margin-bottom: 6px; }
+.p6-reason-body { font-size: 12px; color: var(--sub); }
+
+.p6-cta-bar { background: var(--pri); padding: 40px 32px; display: flex; align-items: center; justify-content: space-between; }
+.p6-cta-text { color: #fff; }
+.p6-cta-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.p6-cta-text p { font-size: 13px; opacity: .8; }
+.p6-cta-btn { background: var(--acc); color: #fff; border: none; padding: 16px 32px; font-size: 15px; font-weight: 700; cursor: pointer; border-radius: 20px; flex-shrink: 0; }
+
+/* ===== PATTERN 09: ライトネイビー×サクラ ===== */
+.p9 { --pri: #2d4270; --acc: #d4657a; --bg1: #f4f7fb; --bg2: #fff; --txt: #1a2744; --sub: #5a6a8a; }
+
+.p9-nav-bar { background: var(--bg2); padding: 0 32px; height: 60px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid var(--pri); }
+.p9-nav-logo { color: var(--pri); font-size: 16px; font-weight: 700; }
+.p9-nav-links { display: flex; gap: 20px; }
+.p9-nav-links a { color: var(--pri); font-size: 12px; text-decoration: none; opacity: .8; }
+.p9-nav-cta { background: var(--acc); color: #fff; border: none; padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+.p9-hero { background: var(--bg1); padding: 60px 32px; display: flex; gap: 40px; align-items: center; }
+.p9-hero-left { flex: 1; }
+.p9-hero-badge { display: inline-flex; align-items: center; gap: 6px; background: #fde8ec; color: var(--acc); font-size: 11px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px; }
+.p9-hero-h1 { font-size: 32px; font-weight: 700; color: var(--txt); line-height: 1.4; margin-bottom: 14px; }
+.p9-hero-sub { font-size: 14px; color: var(--sub); margin-bottom: 24px; line-height: 1.8; }
+.p9-hero-btns { display: flex; gap: 12px; }
+.p9-btn-main { background: var(--pri); color: #fff; border: none; padding: 14px 28px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 8px; }
+.p9-btn-sub { background: transparent; color: var(--acc); border: 2px solid var(--acc); padding: 14px 24px; font-size: 14px; font-weight: 700; cursor: pointer; border-radius: 8px; }
+.p9-hero-img { width: 360px; height: 240px; background: #c8d4e8; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--pri); font-size: 13px; flex-shrink: 0; }
+
+.p9-reason-bar { background: var(--bg2); padding: 32px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+.p9-reason { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(45,66,112,.08); border-left: 4px solid var(--acc); }
+.p9-reason-title { font-size: 14px; font-weight: 700; color: var(--txt); margin-bottom: 6px; }
+.p9-reason-body { font-size: 12px; color: var(--sub); }
+
+.p9-cta-bar { background: var(--pri); padding: 40px 32px; display: flex; align-items: center; justify-content: space-between; }
+.p9-cta-text { color: #fff; }
+.p9-cta-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+.p9-cta-text p { font-size: 13px; opacity: .8; }
+.p9-cta-btn { background: var(--acc); color: #fff; border: none; padding: 16px 32px; font-size: 15px; font-weight: 700; cursor: pointer; border-radius: 20px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>カラービジュアル比較 — 5パターン</h1>
+  <p>タブで切り替え。ナビ・ヒーロー・カード・CTAバーを実際のカラーで確認できます。</p>
+</div>
+
+<!-- タブナビ -->
+<div class="tabs">
+  <button class="tab active" style="background:#f5a623; color:#1a2e1f;" onclick="show('p2',this)">02 誠実な伴走者<br><small>グリーン×アンバー</small></button>
+  <button class="tab" style="" onclick="show('p4',this)">04 温かい専門家<br><small>ネイビー×テラコッタ</small></button>
+  <button class="tab" onclick="show('p5',this)">05 モダン信頼<br><small>チャコール×エメラルド</small></button>
+  <button class="tab" onclick="show('p6',this)">06 新しい地平線<br><small>スレートブルー×サンライズ</small></button>
+  <button class="tab" onclick="show('p9',this)">09 日本的な安心<br><small>ネイビー×サクラ</small></button>
+</div>
+
+<div class="patterns">
+
+  <!-- PATTERN 02 -->
+  <div class="pattern-block active" id="p2">
+    <div class="top-row">
+      <div class="concept-card">
+        <div class="concept-num">PATTERN 02</div>
+        <div class="concept-name">誠実な伴走者</div>
+        <div class="concept-desc">ディープグリーン × アンバーの組み合わせ。自然・誠実・温かさを体現する配色。現行 index.html の緑系カラーの延長線上にあり、ブランドの一貫性を保ちやすい。柔らかい角丸と左ボーダーのアクセントで「寄り添う姿勢」を表現。</div>
+        <div class="concept-keywords">
+          <span class="kw">自然</span><span class="kw">誠実</span><span class="kw">温かみ</span><span class="kw">親しみ</span><span class="kw">一貫性</span>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="palette-title">COLOR PALETTE</div>
+        <div class="palette-row">
+          <div class="palette-block" style="background:#1a5c3a;"></div>
+          <div class="palette-block" style="background:#f5a623;"></div>
+          <div class="palette-block" style="background:#faf8f3;"></div>
+          <div class="palette-block" style="background:#fff; border-right:1px solid #333;"></div>
+        </div>
+        <div class="palette-chips">
+          <div class="chip"><div class="chip-swatch" style="background:#1a5c3a;"></div><div class="chip-info"><div class="chip-role">PRIMARY</div><div class="chip-hex">#1a5c3a</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#f5a623;"></div><div class="chip-info"><div class="chip-role">ACCENT / CTA</div><div class="chip-hex">#f5a623</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#faf8f3; border:1px solid #555;"></div><div class="chip-info"><div class="chip-role">BACKGROUND</div><div class="chip-hex">#faf8f3</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#4a6b50;"></div><div class="chip-info"><div class="chip-role">SUBTEXT</div><div class="chip-hex">#4a6b50</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="preview-label">PREVIEW — ナビ / ヒーロー / カード / CTAバー</div>
+    <div class="preview-frame p2">
+      <div class="p2-nav-bar">
+        <div class="p2-nav-logo">くまもと留学相談室</div>
+        <div class="p2-nav-links"><a href="#">国から探す</a><a href="#">目的別</a><a href="#">年代別</a><a href="#">料金</a><a href="#">代表について</a></div>
+        <button class="p2-nav-cta">無料相談</button>
+      </div>
+      <div class="p2-hero">
+        <div class="p2-hero-left">
+          <div class="p2-hero-badge">紹介料 完全0円</div>
+          <div class="p2-hero-h1">熊本から世界へ。<br>あなたの留学を、<br>プロが伴走します。</div>
+          <div class="p2-hero-sub">心理士資格をもつカウンセラーが<br>自己分析からプランニング、渡航後まで完全サポート。</div>
+          <div class="p2-hero-btns">
+            <button class="p2-btn-main">無料で留学相談する →</button>
+            <button class="p2-btn-sub">資料を受け取る</button>
+          </div>
+        </div>
+        <div class="p2-hero-img">写真プレースホルダー</div>
+      </div>
+      <div class="p2-reason-bar">
+        <div class="p2-reason"><div class="p2-reason-title">紹介料 完全0円</div><div class="p2-reason-body">学校・エージェントからの紹介料で運営。お客様への請求は一切ありません。</div></div>
+        <div class="p2-reason"><div class="p2-reason-title">心理士カウンセラー</div><div class="p2-reason-body">公認心理師・臨床心理士がじっくり自己分析。あなたに合ったプランを一緒に設計します。</div></div>
+        <div class="p2-reason"><div class="p2-reason-title">渡航後も伴走</div><div class="p2-reason-body">出発前〜現地〜帰国後のキャリアまで、ずっとそばにいます。</div></div>
+      </div>
+      <div class="p2-cta-bar">
+        <div class="p2-cta-text"><h3>まずは気軽にLINEで相談を</h3><p>返信は通常24時間以内。相談だけでも大歓迎です。</p></div>
+        <button class="p2-cta-btn">LINEで相談する →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PATTERN 04 -->
+  <div class="pattern-block" id="p4">
+    <div class="top-row">
+      <div class="concept-card">
+        <div class="concept-num">PATTERN 04</div>
+        <div class="concept-name">温かい専門家</div>
+        <div class="concept-desc">ウォームネイビー × テラコッタの組み合わせ。「頼れるお兄さん・お姉さん」のような温かみと専門性を両立。ネイビーが誠実さを、テラコッタが情熱・活力を表現。丸みのある角丸ボタンが親近感を生む。</div>
+        <div class="concept-keywords">
+          <span class="kw">活発</span><span class="kw">温かみ</span><span class="kw">専門性</span><span class="kw">親近感</span><span class="kw">情熱</span>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="palette-title">COLOR PALETTE</div>
+        <div class="palette-row">
+          <div class="palette-block" style="background:#2b3a67;"></div>
+          <div class="palette-block" style="background:#e8634a;"></div>
+          <div class="palette-block" style="background:#fefdf8;"></div>
+          <div class="palette-block" style="background:#d9deee;"></div>
+        </div>
+        <div class="palette-chips">
+          <div class="chip"><div class="chip-swatch" style="background:#2b3a67;"></div><div class="chip-info"><div class="chip-role">PRIMARY</div><div class="chip-hex">#2b3a67</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#e8634a;"></div><div class="chip-info"><div class="chip-role">ACCENT / CTA</div><div class="chip-hex">#e8634a</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#fefdf8; border:1px solid #555;"></div><div class="chip-info"><div class="chip-role">BACKGROUND</div><div class="chip-hex">#fefdf8</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#d9deee;"></div><div class="chip-info"><div class="chip-role">SOFT ACCENT</div><div class="chip-hex">#d9deee</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="preview-label">PREVIEW — ナビ / ヒーロー / カード / CTAバー</div>
+    <div class="preview-frame p4">
+      <div class="p4-nav-bar">
+        <div class="p4-nav-logo">くまもと留学相談室</div>
+        <div class="p4-nav-links"><a href="#">国から探す</a><a href="#">目的別</a><a href="#">年代別</a><a href="#">料金</a><a href="#">代表について</a></div>
+        <button class="p4-nav-cta">無料相談</button>
+      </div>
+      <div class="p4-hero">
+        <div class="p4-hero-left">
+          <div class="p4-hero-badge">紹介料 完全0円</div>
+          <div class="p4-hero-h1">熊本から世界へ。<br>あなたの留学を、<br>プロが伴走します。</div>
+          <div class="p4-hero-sub">心理士資格をもつカウンセラーが<br>自己分析からプランニング、渡航後まで完全サポート。</div>
+          <div class="p4-hero-btns">
+            <button class="p4-btn-main">無料で留学相談する →</button>
+            <button class="p4-btn-sub">資料を受け取る</button>
+          </div>
+        </div>
+        <div class="p4-hero-img">写真プレースホルダー</div>
+      </div>
+      <div class="p4-reason-bar">
+        <div class="p4-reason"><div class="p4-reason-title">紹介料 完全0円</div><div class="p4-reason-body">学校・エージェントからの紹介料で運営。お客様への請求は一切ありません。</div></div>
+        <div class="p4-reason"><div class="p4-reason-title">心理士カウンセラー</div><div class="p4-reason-body">公認心理師・臨床心理士がじっくり自己分析。あなたに合ったプランを一緒に設計します。</div></div>
+        <div class="p4-reason"><div class="p4-reason-title">渡航後も伴走</div><div class="p4-reason-body">出発前〜現地〜帰国後のキャリアまで、ずっとそばにいます。</div></div>
+      </div>
+      <div class="p4-cta-bar">
+        <div class="p4-cta-text"><h3>まずは気軽にLINEで相談を</h3><p>返信は通常24時間以内。相談だけでも大歓迎です。</p></div>
+        <button class="p4-cta-btn">LINEで相談する →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PATTERN 05 -->
+  <div class="pattern-block" id="p5">
+    <div class="top-row">
+      <div class="concept-card">
+        <div class="concept-num">PATTERN 05</div>
+        <div class="concept-name">モダン信頼</div>
+        <div class="concept-desc">チャコール × エメラルドの組み合わせ。スタートアップ・テック系サービスに見られる清潔感のある信頼性。「成長・前進」のイメージが強く、若い世代（大学生・社会人）に響きやすい。シャープな角と明快なレイアウトが特徴。</div>
+        <div class="concept-keywords">
+          <span class="kw">モダン</span><span class="kw">成長</span><span class="kw">クリーン</span><span class="kw">若々しさ</span><span class="kw">テック感</span>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="palette-title">COLOR PALETTE</div>
+        <div class="palette-row">
+          <div class="palette-block" style="background:#2c3e50;"></div>
+          <div class="palette-block" style="background:#27ae60;"></div>
+          <div class="palette-block" style="background:#f9f9f9;"></div>
+          <div class="palette-block" style="background:#eafaf1;"></div>
+        </div>
+        <div class="palette-chips">
+          <div class="chip"><div class="chip-swatch" style="background:#2c3e50;"></div><div class="chip-info"><div class="chip-role">PRIMARY</div><div class="chip-hex">#2c3e50</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#27ae60;"></div><div class="chip-info"><div class="chip-role">ACCENT / CTA</div><div class="chip-hex">#27ae60</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#f9f9f9; border:1px solid #555;"></div><div class="chip-info"><div class="chip-role">BACKGROUND</div><div class="chip-hex">#f9f9f9</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#eafaf1; border:1px solid #555;"></div><div class="chip-info"><div class="chip-role">SOFT ACCENT</div><div class="chip-hex">#eafaf1</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="preview-label">PREVIEW — ナビ / ヒーロー / カード / CTAバー</div>
+    <div class="preview-frame p5">
+      <div class="p5-nav-bar">
+        <div class="p5-nav-logo">くまもと留学相談室</div>
+        <div class="p5-nav-links"><a href="#">国から探す</a><a href="#">目的別</a><a href="#">年代別</a><a href="#">料金</a><a href="#">代表について</a></div>
+        <button class="p5-nav-cta">無料相談</button>
+      </div>
+      <div class="p5-hero">
+        <div class="p5-hero-left">
+          <div class="p5-hero-badge">✓ 紹介料 完全0円</div>
+          <div class="p5-hero-h1">熊本から世界へ。<br>あなたの留学を、<br>プロが伴走します。</div>
+          <div class="p5-hero-sub">心理士資格をもつカウンセラーが<br>自己分析からプランニング、渡航後まで完全サポート。</div>
+          <div class="p5-hero-btns">
+            <button class="p5-btn-main">無料で留学相談する →</button>
+            <button class="p5-btn-sub">資料を受け取る</button>
+          </div>
+        </div>
+        <div class="p5-hero-img">写真プレースホルダー</div>
+      </div>
+      <div class="p5-reason-bar">
+        <div class="p5-reason"><div class="p5-reason-title">紹介料 完全0円</div><div class="p5-reason-body">学校・エージェントからの紹介料で運営。お客様への請求は一切ありません。</div></div>
+        <div class="p5-reason"><div class="p5-reason-title">心理士カウンセラー</div><div class="p5-reason-body">公認心理師・臨床心理士がじっくり自己分析。あなたに合ったプランを一緒に設計します。</div></div>
+        <div class="p5-reason"><div class="p5-reason-title">渡航後も伴走</div><div class="p5-reason-body">出発前〜現地〜帰国後のキャリアまで、ずっとそばにいます。</div></div>
+      </div>
+      <div class="p5-cta-bar">
+        <div class="p5-cta-text"><h3>まずは気軽にLINEで相談を</h3><p>返信は通常24時間以内。相談だけでも大歓迎です。</p></div>
+        <button class="p5-cta-btn">LINEで相談する →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PATTERN 06 -->
+  <div class="pattern-block" id="p6">
+    <div class="top-row">
+      <div class="concept-card">
+        <div class="concept-num">PATTERN 06</div>
+        <div class="concept-name">新しい地平線</div>
+        <div class="concept-desc">スレートブルー × サンライズオレンジの組み合わせ。「海と夕焼け」「旅立ちの朝」を連想させる配色。留学の高揚感と安心感を同時に演出。グラデーション背景と大きめの角丸が柔らかく優しい印象を生む。</div>
+        <div class="concept-keywords">
+          <span class="kw">希望</span><span class="kw">旅立ち</span><span class="kw">高揚感</span><span class="kw">柔らか</span><span class="kw">開放感</span>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="palette-title">COLOR PALETTE</div>
+        <div class="palette-row">
+          <div class="palette-block" style="background:#3d5a80;"></div>
+          <div class="palette-block" style="background:#f4a261;"></div>
+          <div class="palette-block" style="background:#e8eef7;"></div>
+          <div class="palette-block" style="background:#fef5ec;"></div>
+        </div>
+        <div class="palette-chips">
+          <div class="chip"><div class="chip-swatch" style="background:#3d5a80;"></div><div class="chip-info"><div class="chip-role">PRIMARY</div><div class="chip-hex">#3d5a80</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#f4a261;"></div><div class="chip-info"><div class="chip-role">ACCENT / CTA</div><div class="chip-hex">#f4a261</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#e8eef7; border:1px solid #555;"></div><div class="chip-info"><div class="chip-role">BG BLUE</div><div class="chip-hex">#e8eef7</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#fef5ec; border:1px solid #555;"></div><div class="chip-info"><div class="chip-role">BG WARM</div><div class="chip-hex">#fef5ec</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="preview-label">PREVIEW — ナビ / ヒーロー / カード / CTAバー</div>
+    <div class="preview-frame p6">
+      <div class="p6-nav-bar">
+        <div class="p6-nav-logo">くまもと留学相談室</div>
+        <div class="p6-nav-links"><a href="#">国から探す</a><a href="#">目的別</a><a href="#">年代別</a><a href="#">料金</a><a href="#">代表について</a></div>
+        <button class="p6-nav-cta">無料相談</button>
+      </div>
+      <div class="p6-hero">
+        <div class="p6-hero-left">
+          <div class="p6-hero-badge">紹介料 完全0円</div>
+          <div class="p6-hero-h1">熊本から世界へ。<br>あなたの留学を、<br>プロが伴走します。</div>
+          <div class="p6-hero-sub">心理士資格をもつカウンセラーが<br>自己分析からプランニング、渡航後まで完全サポート。</div>
+          <div class="p6-hero-btns">
+            <button class="p6-btn-main">無料で留学相談する →</button>
+            <button class="p6-btn-sub">資料を受け取る</button>
+          </div>
+        </div>
+        <div class="p6-hero-img">写真プレースホルダー</div>
+      </div>
+      <div class="p6-reason-bar">
+        <div class="p6-reason"><div class="p6-reason-title">紹介料 完全0円</div><div class="p6-reason-body">学校・エージェントからの紹介料で運営。お客様への請求は一切ありません。</div></div>
+        <div class="p6-reason"><div class="p6-reason-title">心理士カウンセラー</div><div class="p6-reason-body">公認心理師・臨床心理士がじっくり自己分析。あなたに合ったプランを一緒に設計します。</div></div>
+        <div class="p6-reason"><div class="p6-reason-title">渡航後も伴走</div><div class="p6-reason-body">出発前〜現地〜帰国後のキャリアまで、ずっとそばにいます。</div></div>
+      </div>
+      <div class="p6-cta-bar">
+        <div class="p6-cta-text"><h3>まずは気軽にLINEで相談を</h3><p>返信は通常24時間以内。相談だけでも大歓迎です。</p></div>
+        <button class="p6-cta-btn">LINEで相談する →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PATTERN 09 -->
+  <div class="pattern-block" id="p9">
+    <div class="top-row">
+      <div class="concept-card">
+        <div class="concept-num">PATTERN 09</div>
+        <div class="concept-name">日本的な安心</div>
+        <div class="concept-desc">ライトネイビー × サクラピンクの組み合わせ。「熊本から世界へ」というストーリーと親和性が高い、日本らしさと信頼感の融合。ネイビーが安定・誠実を、サクラが温かみ・親しみを担う。左ボーダーのアクセントが「そっと支える」姿勢を象徴。</div>
+        <div class="concept-keywords">
+          <span class="kw">日本らしさ</span><span class="kw">地元感</span><span class="kw">親しみ</span><span class="kw">信頼</span><span class="kw">熊本</span>
+        </div>
+      </div>
+      <div class="palette-card">
+        <div class="palette-title">COLOR PALETTE</div>
+        <div class="palette-row">
+          <div class="palette-block" style="background:#2d4270;"></div>
+          <div class="palette-block" style="background:#d4657a;"></div>
+          <div class="palette-block" style="background:#f4f7fb;"></div>
+          <div class="palette-block" style="background:#fde8ec;"></div>
+        </div>
+        <div class="palette-chips">
+          <div class="chip"><div class="chip-swatch" style="background:#2d4270;"></div><div class="chip-info"><div class="chip-role">PRIMARY</div><div class="chip-hex">#2d4270</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#d4657a;"></div><div class="chip-info"><div class="chip-role">ACCENT / CTA</div><div class="chip-hex">#d4657a</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#f4f7fb; border:1px solid #555;"></div><div class="chip-info"><div class="chip-role">BACKGROUND</div><div class="chip-hex">#f4f7fb</div></div></div>
+          <div class="chip"><div class="chip-swatch" style="background:#fde8ec; border:1px solid #555;"></div><div class="chip-info"><div class="chip-role">SOFT SAKURA</div><div class="chip-hex">#fde8ec</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="preview-label">PREVIEW — ナビ / ヒーロー / カード / CTAバー</div>
+    <div class="preview-frame p9">
+      <div class="p9-nav-bar">
+        <div class="p9-nav-logo">くまもと留学相談室</div>
+        <div class="p9-nav-links"><a href="#">国から探す</a><a href="#">目的別</a><a href="#">年代別</a><a href="#">料金</a><a href="#">代表について</a></div>
+        <button class="p9-nav-cta">無料相談</button>
+      </div>
+      <div class="p9-hero">
+        <div class="p9-hero-left">
+          <div class="p9-hero-badge">🌸 紹介料 完全0円</div>
+          <div class="p9-hero-h1">熊本から世界へ。<br>あなたの留学を、<br>プロが伴走します。</div>
+          <div class="p9-hero-sub">心理士資格をもつカウンセラーが<br>自己分析からプランニング、渡航後まで完全サポート。</div>
+          <div class="p9-hero-btns">
+            <button class="p9-btn-main">無料で留学相談する →</button>
+            <button class="p9-btn-sub">資料を受け取る</button>
+          </div>
+        </div>
+        <div class="p9-hero-img">写真プレースホルダー</div>
+      </div>
+      <div class="p9-reason-bar">
+        <div class="p9-reason"><div class="p9-reason-title">紹介料 完全0円</div><div class="p9-reason-body">学校・エージェントからの紹介料で運営。お客様への請求は一切ありません。</div></div>
+        <div class="p9-reason"><div class="p9-reason-title">心理士カウンセラー</div><div class="p9-reason-body">公認心理師・臨床心理士がじっくり自己分析。あなたに合ったプランを一緒に設計します。</div></div>
+        <div class="p9-reason"><div class="p9-reason-title">渡航後も伴走</div><div class="p9-reason-body">出発前〜現地〜帰国後のキャリアまで、ずっとそばにいます。</div></div>
+      </div>
+      <div class="p9-cta-bar">
+        <div class="p9-cta-text"><h3>まずは気軽にLINEで相談を</h3><p>返信は通常24時間以内。相談だけでも大歓迎です。</p></div>
+        <button class="p9-cta-btn">LINEで相談する →</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.pattern-block').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(el => {
+    el.classList.remove('active');
+    el.style.background = 'transparent';
+    el.style.color = '#ccc';
+  });
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+
+  // タブごとのアクティブ色
+  const colors = { p2: '#f5a623', p4: '#e8634a', p5: '#27ae60', p6: '#f4a261', p9: '#d4657a' };
+  const textColors = { p2: '#1a2e1f', p4: '#fff', p5: '#fff', p6: '#fff', p9: '#fff' };
+  btn.style.background = colors[id] || '#fff';
+  btn.style.color = textColors[id] || '#000';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ボランティア | くまもと留学相談室</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --pri:#3d5a80; --pri-dk:#293a5a; --acc:#f4a261; --bg1:#e8eef7; --bg2:#fef5ec; --white:#ffffff; --txt:#293241; --sub:#5a7099; --border:#dde5f0; --shadow:0 2px 12px rgba(61,90,128,.10); }
+body { font-family: 'Hiragino Sans','Noto Sans JP',sans-serif; color:var(--txt); line-height:1.7; }
+header { background:rgba(255,255,255,.97); border-bottom:1px solid var(--border); height:64px; display:flex; align-items:center; padding:0 40px; gap:24px; }
+.logo { color:var(--pri); font-size:17px; font-weight:700; margin-right:auto; text-decoration:none; }
+nav a { color:var(--txt); font-size:13px; text-decoration:none; opacity:.8; margin-left:20px; }
+.header-cta { background:var(--acc); color:#fff; border:none; padding:9px 20px; border-radius:20px; font-size:13px; font-weight:700; cursor:pointer; margin-left:20px; }
+.breadcrumb { background:var(--white); padding:14px 40px; border-bottom:1px solid var(--border); font-size:13px; color:var(--sub); }
+.breadcrumb a { color:var(--pri); text-decoration:none; }
+section { padding:64px 40px; }
+.sec-label { font-size:11px; font-weight:700; letter-spacing:.15em; color:var(--sub); margin-bottom:10px; }
+.sec-title { font-size:26px; font-weight:700; color:var(--txt); margin-bottom:10px; line-height:1.4; }
+.sec-sub { font-size:14px; color:var(--sub); line-height:1.9; }
+.purpose-nav { background:var(--white); border-bottom:1px solid var(--border); padding:0 40px; display:flex; gap:0; }
+.pnav-item { padding:14px 24px; font-size:13px; font-weight:700; color:var(--sub); cursor:pointer; border-bottom:3px solid transparent; text-decoration:none; display:block; }
+.pnav-item:hover { color:var(--pri); }
+.pnav-item.active { color:var(--pri); border-bottom-color:var(--acc); }
+#purpose-hero { background:linear-gradient(150deg,var(--bg1) 0%,var(--bg2) 100%); padding:64px 40px; display:grid; grid-template-columns:1fr 440px; gap:48px; align-items:center; }
+.ph-tag { display:inline-flex; align-items:center; gap:8px; background:var(--white); border:1px solid var(--border); color:var(--sub); font-size:12px; font-weight:700; padding:5px 14px; border-radius:20px; margin-bottom:16px; box-shadow:var(--shadow); }
+.ph-h1 { font-size:36px; font-weight:700; line-height:1.35; margin-bottom:14px; }
+.ph-h1 em { color:var(--pri); font-style:normal; }
+.ph-catch { font-size:17px; color:var(--pri); font-weight:700; margin-bottom:16px; }
+.ph-sub { font-size:15px; color:var(--sub); line-height:1.9; margin-bottom:28px; }
+.ph-btns { display:flex; gap:12px; }
+.btn-main { background:var(--acc); color:#fff; border:none; padding:14px 28px; border-radius:20px; font-size:15px; font-weight:700; cursor:pointer; }
+.btn-sub { background:transparent; color:var(--pri); border:2px solid var(--pri); padding:14px 24px; border-radius:20px; font-size:15px; font-weight:700; cursor:pointer; }
+.ph-img { height:320px; border-radius:16px; overflow:hidden; }
+.ph-img img { width:100%; height:100%; object-fit:cover; }
+#what { background:var(--white); }
+.what-wrap { display:grid; grid-template-columns:1fr 400px; gap:48px; align-items:center; margin-top:40px; }
+.what-body { font-size:15px; color:var(--sub); line-height:2; }
+.what-img { height:300px; border-radius:16px; overflow:hidden; }
+.what-img img { width:100%; height:100%; object-fit:cover; }
+#merits { background:linear-gradient(150deg,var(--bg1) 0%,var(--bg2) 100%); }
+.merit-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:40px; }
+.merit-card { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:28px; box-shadow:var(--shadow); display:flex; gap:16px; }
+.merit-num { width:44px; height:44px; background:var(--pri); color:#fff; border-radius:50%; font-size:18px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.merit-title { font-size:16px; font-weight:700; color:var(--txt); margin-bottom:8px; }
+.merit-body { font-size:13px; color:var(--sub); line-height:1.8; }
+#programs { background:var(--white); }
+.prog-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px; }
+.prog-card { border:2px solid var(--border); border-radius:20px; overflow:hidden; box-shadow:var(--shadow); }
+.prog-card-head { background:var(--pri); color:#fff; padding:20px 24px; }
+.prog-card-title { font-size:17px; font-weight:700; margin-bottom:4px; }
+.prog-card-meta { font-size:12px; opacity:.8; }
+.prog-card-body { padding:24px; }
+.prog-detail { display:flex; flex-direction:column; gap:10px; }
+.prog-detail-row { display:flex; gap:10px; font-size:14px; }
+.prog-detail-label { color:var(--sub); font-weight:700; min-width:60px; flex-shrink:0; }
+.prog-detail-val { color:var(--txt); }
+.prog-badge { display:inline-block; background:var(--bg2); color:var(--acc); font-size:11px; font-weight:700; padding:3px 10px; border-radius:10px; border:1px solid var(--acc); margin-top:12px; }
+#timeline { background:linear-gradient(150deg,var(--bg1) 0%,var(--bg2) 100%); }
+.timeline { display:flex; gap:0; margin-top:40px; position:relative; }
+.timeline::before { content:''; position:absolute; top:28px; left:28px; right:28px; height:2px; background:var(--border); z-index:0; }
+.tl-step { flex:1; text-align:center; position:relative; z-index:1; padding:0 8px; }
+.tl-dot { width:56px; height:56px; background:var(--white); border:3px solid var(--pri); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; margin:0 auto 14px; }
+.tl-month { font-size:11px; font-weight:700; color:var(--acc); letter-spacing:.08em; margin-bottom:6px; }
+.tl-title { font-size:13px; font-weight:700; color:var(--txt); margin-bottom:6px; }
+.tl-body { font-size:12px; color:var(--sub); line-height:1.7; }
+#voices { background:var(--white); }
+.voice-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:40px; }
+.voice-card { background:var(--bg1); border:1px solid var(--border); border-radius:20px; padding:28px; box-shadow:var(--shadow); }
+.voice-head { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+.voice-avatar { width:52px; height:52px; border-radius:50%; background:var(--white); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:22px; }
+.voice-name { font-size:14px; font-weight:700; color:var(--txt); }
+.voice-meta { font-size:12px; color:var(--sub); }
+.voice-stars { color:var(--acc); font-size:16px; margin-bottom:10px; }
+.voice-text { font-size:13px; color:var(--sub); line-height:1.9; }
+.voice-tag { display:inline-flex; align-items:center; gap:4px; background:var(--white); color:var(--pri); font-size:11px; font-weight:700; padding:3px 10px; border-radius:10px; margin-top:14px; }
+#purpose-cta { background:var(--pri); padding:72px 40px; text-align:center; }
+.cta-h2 { font-size:28px; font-weight:700; color:#fff; margin-bottom:12px; }
+.cta-sub { font-size:15px; color:rgba(255,255,255,.8); margin-bottom:40px; }
+.cta-btns { display:flex; gap:16px; justify-content:center; }
+.cta-btn-main { background:var(--acc); color:#fff; border:none; padding:16px 36px; border-radius:20px; font-size:16px; font-weight:700; cursor:pointer; }
+.cta-btn-sub { background:rgba(255,255,255,.15); color:#fff; border:2px solid rgba(255,255,255,.5); padding:16px 32px; border-radius:20px; font-size:16px; font-weight:700; cursor:pointer; }
+footer { background:var(--txt); color:rgba(255,255,255,.7); padding:40px; font-size:13px; }
+.footer-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; }
+.footer-logo { color:#fff; font-size:16px; font-weight:700; margin-bottom:6px; }
+.footer-nav { display:flex; gap:24px; }
+.footer-nav a { color:rgba(255,255,255,.65); text-decoration:none; font-size:13px; }
+@media (max-width:960px) {
+  #purpose-hero { grid-template-columns:1fr; } .ph-img { height:220px; }
+  .what-wrap { grid-template-columns:1fr; } .what-img { height:200px; }
+  .merit-grid { grid-template-columns:1fr; } .prog-grid { grid-template-columns:1fr; }
+  .timeline { flex-direction:column; gap:16px; } .timeline::before { display:none; }
+  .voice-grid { grid-template-columns:1fr; } .cta-btns { flex-direction:column; align-items:center; }
+  header { padding:0 20px; } header nav { display:none; }
+  section { padding:48px 20px; } .purpose-nav { padding:0 20px; overflow-x:auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">くまもと留学相談室</a>
+  <nav>
+    <a href="index.html#programs">国から探す</a>
+    <a href="wireframe-purpose.html">目的別</a>
+    <a href="index.html#faq">よくある質問</a>
+    <a href="story.html">代表について</a>
+  </nav>
+  <button class="header-cta" onclick="location.href='https://lin.ee/tZyufz4'">無料相談</button>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">トップ</a> ＞ <a href="wireframe-purpose.html">目的から探す</a> ＞ ボランティア
+</div>
+
+<nav class="purpose-nav">
+  <a href="short.html" class="pnav-item">短期留学</a>
+  <a href="wireframe-purpose.html" class="pnav-item">長期留学</a>
+  <a href="intern.html" class="pnav-item">インターンシップ</a>
+  <a href="volunteer.html" class="pnav-item active">ボランティア</a>
+</nav>
+
+<!-- HERO -->
+<section id="purpose-hero">
+  <div>
+    <div class="ph-tag">🌱 ボランティア</div>
+    <h1 class="ph-h1">海外ボランティアで、<br><em>世界と繋がる</em>。</h1>
+    <div class="ph-catch">英語を使いながら、現地の人の役に立つ2週間。</div>
+    <p class="ph-sub">
+      フィジーのColors Fijiでは、英語学習と並行して<br>
+      ボランティア活動への参加が可能です。<br>
+      現地コミュニティの支援・環境保護活動など、<br>
+      社会に貢献しながら英語力を高めるユニークなスタイル。<br>
+      「留学で何かを与えたい」という方に最適です。
+    </p>
+    <div class="ph-btns">
+      <button class="btn-main" onclick="document.getElementById('purpose-cta').scrollIntoView({behavior:'smooth'})">ボランティアを相談する →</button>
+      <button class="btn-sub" onclick="location.href='index.html#contact'">資料を受け取る</button>
+    </div>
+  </div>
+  <div class="ph-img">
+    <img src="images/bali-volunteer.jpg" alt="ボランティアイメージ" loading="lazy" />
+  </div>
+</section>
+
+<!-- WHAT IS IT -->
+<section id="what">
+  <div class="sec-label">ABOUT</div>
+  <h2 class="sec-title">海外ボランティアとは？</h2>
+  <div class="what-wrap">
+    <div class="what-body">
+      海外ボランティアとは、留学中に現地のコミュニティ支援・環境保護・NPO活動などに参加するプログラムです。英語を学びながら、実際に社会の役に立てるのが最大の特徴です。<br><br>
+      「もらうだけでなく、与えられる留学がしたい」——そんな方にぴったりのスタイルです。フィジーのColors Fijiでは、英語授業と組み合わせて現地のボランティア活動に参加できます。<br><br>
+      幸福度世界1位の国で、日本とは違う「豊かさ」に触れながら、あなた自身の価値観も広がります。
+    </div>
+    <div class="what-img">
+      <img src="images/bali-volunteer.jpg" alt="ボランティアイメージ" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- MERITS -->
+<section id="merits">
+  <div class="sec-label">MERITS</div>
+  <h2 class="sec-title">海外ボランティアの4つのメリット</h2>
+  <div class="merit-grid">
+    <div class="merit-card">
+      <div class="merit-num">1</div>
+      <div>
+        <div class="merit-title">英語を使いながら社会貢献できる</div>
+        <div class="merit-body">授業で学んだ英語を、現地の人々と関わる活動の中で即実践。学ぶ意欲が格段に高まります。</div>
+      </div>
+    </div>
+    <div class="merit-card">
+      <div class="merit-num">2</div>
+      <div>
+        <div class="merit-title">現地コミュニティと深く繋がれる</div>
+        <div class="merit-body">観光客では入れない村を訪問したり、NPO活動に参加したり。本当の意味でフィジーを知ることができます。</div>
+      </div>
+    </div>
+    <div class="merit-card">
+      <div class="merit-num">3</div>
+      <div>
+        <div class="merit-title">履歴書・ESで差がつく</div>
+        <div class="merit-body">海外ボランティアの経験は就活でも評価されます。「何のために行ったか」が明確に語れる経験になります。</div>
+      </div>
+    </div>
+    <div class="merit-card">
+      <div class="merit-num">4</div>
+      <div>
+        <div class="merit-title">自分の価値観が広がる</div>
+        <div class="merit-body">幸福度世界1位の国で、日本とは異なる「豊かさ」の形に触れることで、自分自身の生き方を見つめ直すきっかけになります。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <div class="sec-label">PROGRAMS</div>
+  <h2 class="sec-title">おすすめプログラム</h2>
+  <p class="sec-sub">フィジーのColors Fijiが提供する、英語×ボランティアプログラム。</p>
+  <div class="prog-grid">
+    <div class="prog-card">
+      <div class="prog-card-head">
+        <div class="prog-card-title">🇫🇯 フィジー スタンダード＋ボランティア</div>
+        <div class="prog-card-meta">Colors Fiji</div>
+      </div>
+      <div class="prog-card-body">
+        <div class="prog-detail">
+          <div class="prog-detail-row">
+            <div class="prog-detail-label">期間</div>
+            <div class="prog-detail-val">1〜4週間</div>
+          </div>
+          <div class="prog-detail-row">
+            <div class="prog-detail-label">内容</div>
+            <div class="prog-detail-val">英語授業（1日6コマ）＋週末・午後のボランティア活動</div>
+          </div>
+          <div class="prog-detail-row">
+            <div class="prog-detail-label">特徴</div>
+            <div class="prog-detail-val">英語学習をベースに、現地コミュニティ支援活動に参加できる</div>
+          </div>
+        </div>
+        <div class="prog-badge">🌱 英語学習＋社会貢献</div>
+      </div>
+    </div>
+    <div class="prog-card">
+      <div class="prog-card-head">
+        <div class="prog-card-title">🇫🇯 フィジー MY COLOR FIJI</div>
+        <div class="prog-card-meta">Colors Fiji</div>
+      </div>
+      <div class="prog-card-body">
+        <div class="prog-detail">
+          <div class="prog-detail-row">
+            <div class="prog-detail-label">期間</div>
+            <div class="prog-detail-val">2週間</div>
+          </div>
+          <div class="prog-detail-row">
+            <div class="prog-detail-label">費用</div>
+            <div class="prog-detail-val">¥196,200〜</div>
+          </div>
+          <div class="prog-detail-row">
+            <div class="prog-detail-label">内容</div>
+            <div class="prog-detail-val">村訪問・NPO活動・環境施設フィールドワーク・最終プレゼン込み</div>
+          </div>
+        </div>
+        <div class="prog-badge">🏝️ フィールドワーク充実プログラム</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="sec-label">TIMELINE</div>
+  <h2 class="sec-title">相談から参加までの流れ</h2>
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-dot">💬</div>
+      <div class="tl-month">STEP 1</div>
+      <div class="tl-title">無料相談</div>
+      <div class="tl-body">ZoomまたはLINEビデオ通話、もしくは熊本大学近くのオフィスでお話しします</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">🧠</div>
+      <div class="tl-month">STEP 2</div>
+      <div class="tl-title">プランニング</div>
+      <div class="tl-body">留学経験ありのカウンセラーが、あなたに合うボランティアプランを提案</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">📝</div>
+      <div class="tl-month">STEP 3</div>
+      <div class="tl-title">申込・手続き</div>
+      <div class="tl-body">プログラム申込・渡航準備をフルサポート。必要書類も一緒に確認します</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">✈️</div>
+      <div class="tl-month">STEP 4</div>
+      <div class="tl-title">参加・現地活動</div>
+      <div class="tl-body">渡航中もLINEでいつでも相談OK。現地でのトラブル対応も</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">🎓</div>
+      <div class="tl-month">STEP 5</div>
+      <div class="tl-title">帰国・振り返り</div>
+      <div class="tl-body">帰国後の振り返りや、次のステップへの相談も大歓迎です</div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section id="voices">
+  <div class="sec-label">VOICES</div>
+  <h2 class="sec-title">ボランティアを経験した方の声</h2>
+  <div class="voice-grid">
+    <div class="voice-card">
+      <div class="voice-head">
+        <div class="voice-avatar">👩</div>
+        <div>
+          <div class="voice-name">M.K さん（大学4年生）</div>
+          <div class="voice-meta">フィジー ボランティア 3週間</div>
+        </div>
+      </div>
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">英語学習がメインのつもりで行きましたが、村訪問での子どもたちとの交流が人生で一番印象に残っています。英語が通じなくても気持ちは伝わるんだなって実感しました。就活の軸が「社会に貢献できる仕事」に変わりました。</div>
+      <div class="voice-tag">🇫🇯 ボランティア / 大学生</div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-head">
+        <div class="voice-avatar">👩</div>
+        <div>
+          <div class="voice-name">R.S さん（社会人 26歳）</div>
+          <div class="voice-meta">フィジー MY COLOR FIJI</div>
+        </div>
+      </div>
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">午前は英語授業、午後はNPOのフィールドワーク。最終日に現地チームの前で英語プレゼンを行いました。準備は大変でしたが、終わったときの達成感は忘れられません。</div>
+      <div class="voice-tag">🇫🇯 ボランティア / 社会人</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="purpose-cta">
+  <h2 class="cta-h2">海外ボランティアについて、まず相談してみませんか？</h2>
+  <p class="cta-sub">「自分にできるの？」「英語が不安」——そんな疑問も大歓迎です。費用は一切かかりません。</p>
+  <div class="cta-btns">
+    <button class="cta-btn-main" onclick="location.href='https://lin.ee/tZyufz4'">💬 LINEで相談する</button>
+    <button class="cta-btn-sub" onclick="location.href='index.html#contact'">📄 無料資料を請求する</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-logo">くまもと留学相談室</div><div>© 2025 くまもと留学相談室</div></div>
+    <nav class="footer-nav">
+      <a href="index.html">トップ</a>
+      <a href="index.html#programs">プログラム</a>
+      <a href="index.html#contact">お問い合わせ</a>
+      <a href="index.html#faq">よくある質問</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>

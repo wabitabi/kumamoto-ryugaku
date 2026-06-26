@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>くまもと留学相談室 | 熊本から世界へ</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pri:    #3d5a80;
+  --pri-dk: #293a5a;
+  --acc:    #f4a261;
+  --acc-dk: #e08040;
+  --bg1:    #e8eef7;
+  --bg2:    #fef5ec;
+  --white:  #ffffff;
+  --txt:    #293241;
+  --sub:    #5a7099;
+  --border: #dde5f0;
+  --card-shadow: 0 2px 12px rgba(61,90,128,.10);
+}
+
+body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; color: var(--txt); line-height: 1.7; }
+
+/* ── WIREFRAME BAR ── */
+.wf-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: #fff3cd; border-bottom: 2px dashed #f0ad4e;
+  padding: 6px 20px; font-size: 11px; font-weight: 700; color: #856404;
+  text-align: center; letter-spacing: .05em;
+}
+
+/* ── HEADER ── */
+header {
+  position: fixed; top: 34px; left: 0; right: 0; z-index: 900;
+  background: rgba(255,255,255,.97); border-bottom: 1px solid var(--border);
+  height: 64px; display: flex; align-items: center;
+  padding: 0 40px; gap: 24px;
+  backdrop-filter: blur(8px);
+}
+.logo { color: var(--pri); font-size: 17px; font-weight: 700; margin-right: auto; text-decoration: none; white-space: nowrap; }
+nav { display: flex; gap: 20px; }
+nav a { color: var(--txt); font-size: 13px; text-decoration: none; opacity: .8; white-space: nowrap; }
+nav a:hover { color: var(--pri); opacity: 1; }
+.header-cta { background: var(--acc); color: #fff; border: none; padding: 9px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.header-cta:hover { background: var(--acc-dk); }
+
+/* ── MAIN PADDING ── */
+main { padding-top: 98px; }
+
+/* ── SECTION COMMON ── */
+section { padding: 72px 40px; }
+.sec-label { font-size: 11px; font-weight: 700; letter-spacing: .15em; color: var(--sub); margin-bottom: 12px; }
+.sec-title { font-size: 28px; font-weight: 700; color: var(--txt); margin-bottom: 12px; line-height: 1.4; }
+.sec-sub { font-size: 15px; color: var(--sub); }
+.center { text-align: center; }
+.img-placeholder {
+  background: var(--bg1); border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--sub); font-size: 12px; font-weight: 600;
+}
+
+/* ── HERO ── */
+#hero {
+  background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%);
+  padding: 80px 40px 72px;
+  display: flex; gap: 48px; align-items: center;
+  min-height: 580px;
+}
+.hero-left { flex: 1; max-width: 560px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--white); border: 1px solid var(--border);
+  color: var(--pri); font-size: 12px; font-weight: 700;
+  padding: 6px 16px; border-radius: 20px; margin-bottom: 20px;
+  box-shadow: var(--card-shadow);
+}
+.hero-badge span { background: var(--acc); color: #fff; font-size: 10px; padding: 2px 8px; border-radius: 10px; }
+.hero-h1 { font-size: 38px; font-weight: 700; line-height: 1.35; margin-bottom: 16px; color: var(--txt); }
+.hero-h1 em { color: var(--pri); font-style: normal; }
+.hero-sub { font-size: 15px; color: var(--sub); margin-bottom: 32px; line-height: 1.9; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+.btn-main { background: var(--acc); color: #fff; border: none; padding: 14px 28px; border-radius: 20px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.btn-main:hover { background: var(--acc-dk); }
+.btn-sub { background: transparent; color: var(--pri); border: 2px solid var(--pri); padding: 14px 24px; border-radius: 20px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.hero-trust { display: flex; gap: 20px; font-size: 12px; color: var(--sub); }
+.hero-trust span::before { content: '✓ '; color: var(--acc); font-weight: 700; }
+.hero-right { flex-shrink: 0; width: 440px; height: 320px; }
+
+/* ── HOW IT WORKS ── */
+#how { background: var(--white); }
+.steps { display: grid; grid-template-columns: 1fr 48px 1fr 48px 1fr; align-items: center; gap: 0; margin-top: 48px; }
+.step { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 32px 24px; box-shadow: var(--card-shadow); text-align: center; }
+.step-num { width: 44px; height: 44px; background: var(--pri); color: #fff; border-radius: 50%; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+.step-icon { font-size: 36px; margin-bottom: 12px; }
+.step-title { font-size: 16px; font-weight: 700; color: var(--txt); margin-bottom: 8px; }
+.step-body { font-size: 13px; color: var(--sub); line-height: 1.8; }
+.step-arrow { text-align: center; font-size: 28px; color: var(--acc); font-weight: 700; }
+
+/* ── PROBLEMS ── */
+#problems { background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
+.bubbles { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 40px; justify-content: center; }
+.bubble {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 20px; padding: 18px 24px;
+  box-shadow: var(--card-shadow); font-size: 14px; font-weight: 600; color: var(--txt);
+  display: flex; align-items: center; gap: 10px;
+}
+.bubble-icon { font-size: 24px; }
+.problems-answer {
+  margin-top: 40px; background: var(--white); border-radius: 20px;
+  padding: 32px 40px; border: 2px solid var(--pri); text-align: center;
+  box-shadow: var(--card-shadow);
+}
+.problems-answer p { font-size: 17px; font-weight: 700; color: var(--pri); }
+.problems-answer small { font-size: 13px; color: var(--sub); }
+
+/* ── REASONS ── */
+#reasons { background: var(--white); }
+.reason-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 48px; }
+.reason-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  padding: 28px 20px; box-shadow: var(--card-shadow); text-align: center;
+  border-top: 4px solid var(--acc);
+}
+.reason-icon { font-size: 40px; margin-bottom: 14px; }
+.reason-title { font-size: 16px; font-weight: 700; color: var(--txt); margin-bottom: 10px; }
+.reason-body { font-size: 13px; color: var(--sub); line-height: 1.8; }
+
+/* ── PROGRAMS ── */
+#programs { background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
+.tab-nav { display: flex; gap: 8px; margin-top: 40px; flex-wrap: wrap; }
+.tab-btn {
+  padding: 10px 24px; border-radius: 20px; font-size: 14px; font-weight: 700;
+  cursor: pointer; border: 2px solid var(--border); background: var(--white);
+  color: var(--sub); transition: all .15s;
+}
+.tab-btn.active { background: var(--pri); color: #fff; border-color: var(--pri); }
+.tab-content { display: none; margin-top: 28px; }
+.tab-content.active { display: block; }
+.prog-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.prog-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.prog-grid-7 { display: grid; grid-template-columns: repeat(7, 1fr); gap: 14px; }
+.prog-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; box-shadow: var(--card-shadow); text-decoration: none; color: var(--txt);
+  transition: transform .15s, box-shadow .15s; display: block;
+}
+.prog-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(61,90,128,.15); }
+.prog-img { height: 120px; }
+.prog-info { padding: 14px; }
+.prog-flag { font-size: 22px; margin-bottom: 6px; }
+.prog-name { font-size: 14px; font-weight: 700; color: var(--txt); margin-bottom: 4px; }
+.prog-catch { font-size: 12px; color: var(--sub); }
+
+.prog-card-wide { grid-column: span 1; }
+.prog-img-4 { height: 140px; }
+.prog-info-4 { padding: 18px; }
+.prog-name-4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+
+/* ── FOUNDER ── */
+#founder { background: var(--white); }
+.founder-wrap { display: grid; grid-template-columns: 360px 1fr; gap: 56px; align-items: center; margin-top: 48px; }
+.founder-photo { border-radius: 20px; height: 420px; }
+.founder-text { }
+.founder-name { font-size: 13px; color: var(--sub); margin-bottom: 6px; }
+.founder-h2 { font-size: 26px; font-weight: 700; color: var(--txt); margin-bottom: 20px; line-height: 1.4; }
+.founder-body { font-size: 14px; color: var(--sub); line-height: 2; margin-bottom: 24px; }
+.founder-link { color: var(--pri); font-size: 14px; font-weight: 700; text-decoration: none; }
+.founder-link:hover { text-decoration: underline; }
+
+/* ── VOICES ── */
+#voices { background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
+.voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+.voice-card {
+  background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+  padding: 28px; box-shadow: var(--card-shadow);
+}
+.voice-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.voice-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--bg1); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.voice-info { }
+.voice-name { font-size: 14px; font-weight: 700; color: var(--txt); }
+.voice-meta { font-size: 12px; color: var(--sub); }
+.voice-stars { color: var(--acc); font-size: 16px; margin-bottom: 12px; }
+.voice-text { font-size: 13px; color: var(--sub); line-height: 1.9; }
+.voice-country { display: inline-flex; align-items: center; gap: 4px; background: var(--bg1); color: var(--pri); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; margin-top: 14px; }
+
+/* ── FAQ ── */
+#faq { background: var(--white); }
+.faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 12px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.faq-item { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.faq-question {
+  padding: 20px 24px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+  font-size: 15px; font-weight: 700; color: var(--txt); background: var(--white);
+  user-select: none;
+}
+.faq-question:hover { background: var(--bg1); }
+.faq-q-icon { color: var(--pri); font-size: 18px; font-weight: 700; margin-right: 12px; flex-shrink: 0; }
+.faq-q-text { flex: 1; }
+.faq-arrow { color: var(--sub); font-size: 18px; transition: transform .2s; flex-shrink: 0; }
+.faq-item.open .faq-arrow { transform: rotate(180deg); }
+.faq-answer { display: none; padding: 0 24px 20px 56px; font-size: 14px; color: var(--sub); line-height: 1.9; }
+.faq-item.open .faq-answer { display: block; }
+
+/* ── CONTACT ── */
+#contact { background: var(--pri); padding: 72px 40px; }
+.contact-title { font-size: 28px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 8px; }
+.contact-sub { font-size: 15px; color: rgba(255,255,255,.75); text-align: center; margin-bottom: 48px; }
+.contact-channels { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 800px; margin: 0 auto 48px; }
+.channel-card {
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25);
+  border-radius: 20px; padding: 32px; text-align: center; color: #fff;
+  cursor: pointer; transition: background .15s;
+}
+.channel-card:hover { background: rgba(255,255,255,.2); }
+.channel-icon { font-size: 44px; margin-bottom: 12px; }
+.channel-name { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+.channel-desc { font-size: 13px; opacity: .8; margin-bottom: 20px; }
+.channel-btn { display: inline-block; background: #fff; color: var(--pri); padding: 12px 28px; border-radius: 20px; font-size: 14px; font-weight: 700; }
+.form-card {
+  background: var(--white); border-radius: 24px; padding: 40px;
+  max-width: 800px; margin: 0 auto; box-shadow: 0 8px 40px rgba(0,0,0,.2);
+}
+.form-title { font-size: 18px; font-weight: 700; color: var(--txt); margin-bottom: 24px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 13px; font-weight: 700; color: var(--txt); }
+.form-group label .req { color: #e74c3c; font-size: 11px; margin-left: 4px; }
+.form-group input, .form-group select, .form-group textarea {
+  padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px;
+  font-size: 14px; color: var(--txt); outline: none;
+  font-family: inherit;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--pri); box-shadow: 0 0 0 3px rgba(61,90,128,.12);
+}
+.form-full { grid-column: 1 / -1; }
+.checkbox-group { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.checkbox-group label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--txt); cursor: pointer; }
+.form-submit { width: 100%; background: var(--pri); color: #fff; border: none; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; margin-top: 8px; }
+.form-submit:hover { background: var(--pri-dk); }
+.form-note { font-size: 11px; color: var(--sub); text-align: center; margin-top: 12px; }
+
+/* ── FOOTER ── */
+footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 48px 40px 32px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand { }
+.footer-logo { color: #fff; font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.footer-tagline { font-size: 13px; line-height: 1.8; margin-bottom: 16px; }
+.footer-nav-title { font-size: 12px; font-weight: 700; color: rgba(255,255,255,.5); letter-spacing: .1em; margin-bottom: 12px; }
+.footer-nav-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-nav-list a { color: rgba(255,255,255,.65); font-size: 13px; text-decoration: none; }
+.footer-nav-list a:hover { color: #fff; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.12); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+
+/* ── FLOAT CTA (mobile) ── */
+.float-cta {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 800;
+  background: var(--white); border-top: 1px solid var(--border);
+  padding: 12px 20px; gap: 10px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  header { padding: 0 20px; }
+  nav { display: none; }
+  section { padding: 56px 20px; }
+  #hero { padding: 60px 20px 56px; flex-direction: column; min-height: auto; }
+  .hero-right { width: 100%; height: 220px; }
+  .hero-h1 { font-size: 28px; }
+  .steps { grid-template-columns: 1fr; gap: 16px; }
+  .step-arrow { transform: rotate(90deg); font-size: 22px; }
+  .reason-grid { grid-template-columns: 1fr 1fr; }
+  .prog-grid { grid-template-columns: repeat(2, 1fr); }
+  .prog-grid-4 { grid-template-columns: 1fr 1fr; }
+  .prog-grid-7 { grid-template-columns: repeat(3, 1fr); }
+  .founder-wrap { grid-template-columns: 1fr; }
+  .founder-photo { height: 260px; }
+  .voice-grid { grid-template-columns: 1fr; }
+  .contact-channels { grid-template-columns: 1fr; }
+  .form-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .float-cta { display: flex; }
+}
+</style>
+</head>
+<body>
+
+<!-- WIREFRAME BAR -->
+<div class="wf-bar">WIREFRAME ― デザイン確認用プロトタイプ（実装前）</div>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">くまもと留学相談室</a>
+  <nav>
+    <a href="#programs">国から探す</a>
+    <a href="#programs">目的別</a>
+    <a href="#programs">年代別</a>
+    <a href="#contact">料金・よくある質問</a>
+    <a href="#founder">代表について</a>
+  </nav>
+  <button class="header-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">無料相談</button>
+</header>
+
+<main>
+
+<!-- ①HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge">
+      <span>完全無料</span>
+      紹介料0円・相談料0円
+    </div>
+    <h1 class="hero-h1">
+      熊本から世界へ。<br>
+      あなたの留学を、<br>
+      <em>プロが伴走します。</em>
+    </h1>
+    <p class="hero-sub">
+      心理士資格をもつカウンセラーが自己分析から<br>
+      プランニング、渡航後のキャリアまで完全サポート。
+    </p>
+    <div class="hero-btns">
+      <button class="btn-main" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">無料で留学相談する →</button>
+      <button class="btn-sub" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">資料を受け取る</button>
+    </div>
+    <div class="hero-trust">
+      <span>紹介料 完全0円</span>
+      <span>心理士が担当</span>
+      <span>渡航後も伴走</span>
+    </div>
+  </div>
+  <div class="hero-right img-placeholder">写真プレースホルダー<br>（代表 or 留学中の様子）</div>
+</section>
+
+<!-- ②HOW IT WORKS -->
+<section id="how">
+  <div class="center">
+    <div class="sec-label">HOW IT WORKS</div>
+    <h2 class="sec-title">3ステップで留学へ</h2>
+    <p class="sec-sub">相談から出発まで、すべてくまもと留学相談室がサポートします。</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-icon">💬</div>
+      <div class="step-title">LINEで無料相談</div>
+      <div class="step-body">まず気軽に悩みや希望をお聞かせください。英語力・予算・目的、何でも大丈夫です。</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-icon">🧠</div>
+      <div class="step-title">プランニング</div>
+      <div class="step-body">心理士があなたの強み・目標を分析。希望と現実を踏まえた最適なプランを一緒に設計します。</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-icon">✈️</div>
+      <div class="step-title">出発・帰国まで伴走</div>
+      <div class="step-body">渡航準備・ビザ・現地トラブル対応から帰国後のキャリア相談まで、ずっとそばにいます。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ③PROBLEMS -->
+<section id="problems">
+  <div class="center">
+    <div class="sec-label">YOUR WORRIES</div>
+    <h2 class="sec-title">こんな不安、ありませんか？</h2>
+    <p class="sec-sub">留学に踏み出せない理由は、ひとつひとつ一緒に解消します。</p>
+  </div>
+  <div class="bubbles">
+    <div class="bubble"><span class="bubble-icon">😰</span>英語がまったくできないけど大丈夫？</div>
+    <div class="bubble"><span class="bubble-icon">💸</span>費用がいくらかかるか不安…</div>
+    <div class="bubble"><span class="bubble-icon">😟</span>一人で海外に行くのが怖い</div>
+    <div class="bubble"><span class="bubble-icon">🎓</span>留学後のキャリアに活かせる？</div>
+    <div class="bubble"><span class="bubble-icon">⚠️</span>悪質なエージェントに当たりそう</div>
+  </div>
+  <div class="problems-answer">
+    <p>すべて、くまもと留学相談室にお任せください。</p>
+    <small>不安ゼロで出発できるまで、何度でも相談できます。</small>
+  </div>
+</section>
+
+<!-- ④REASONS -->
+<section id="reasons">
+  <div class="center">
+    <div class="sec-label">WHY US</div>
+    <h2 class="sec-title">選ばれる4つの理由</h2>
+  </div>
+  <div class="reason-grid">
+    <div class="reason-card">
+      <div class="reason-icon">¥</div>
+      <div class="reason-title">紹介料 完全0円</div>
+      <div class="reason-body">学校・エージェントからの紹介料で運営しています。お客様への請求は一切ありません。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">🧠</div>
+      <div class="reason-title">心理士カウンセラー</div>
+      <div class="reason-body">公認心理師・臨床心理士の資格をもつカウンセラーが、自己分析から目標設定まで伴走。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">✈️</div>
+      <div class="reason-title">渡航後も伴走</div>
+      <div class="reason-body">出発前〜現地サポート〜帰国後のキャリア相談まで、一貫してサポートし続けます。</div>
+    </div>
+    <div class="reason-card">
+      <div class="reason-icon">📱</div>
+      <div class="reason-title">SNSで情報発信中</div>
+      <div class="reason-body">Instagram・YouTubeで留学リアルを発信。フォローして情報収集から始めてみてください。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑤PROGRAMS -->
+<section id="programs">
+  <div class="center">
+    <div class="sec-label">PROGRAMS</div>
+    <h2 class="sec-title">プログラムを探す</h2>
+    <p class="sec-sub">国・目的・年代から、あなたにぴったりの留学を見つけてください。</p>
+  </div>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('tab-country', this)">🌏 国から探す</button>
+    <button class="tab-btn" onclick="switchTab('tab-purpose', this)">🎯 目的から探す</button>
+    <button class="tab-btn" onclick="switchTab('tab-age', this)">👤 年代から探す</button>
+  </div>
+
+  <!-- 国から探す -->
+  <div class="tab-content active" id="tab-country">
+    <div class="prog-grid">
+      <a href="wireframe-country.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:120px;">セブ島の写真</div>
+        <div class="prog-info">
+          <div class="prog-flag">🇵🇭</div>
+          <div class="prog-name">セブ島（フィリピン）</div>
+          <div class="prog-catch">コスパ最強の英語留学</div>
+        </div>
+      </a>
+      <a href="wireframe-country.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:120px;">ハワイの写真</div>
+        <div class="prog-info">
+          <div class="prog-flag">🇺🇸</div>
+          <div class="prog-name">ハワイ（アメリカ）</div>
+          <div class="prog-catch">英語×多文化体験</div>
+        </div>
+      </a>
+      <a href="wireframe-country.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:120px;">フィジーの写真</div>
+        <div class="prog-info">
+          <div class="prog-flag">🇫🇯</div>
+          <div class="prog-name">フィジー</div>
+          <div class="prog-catch">南国×自然×英語</div>
+        </div>
+      </a>
+      <a href="wireframe-country.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:120px;">バリの写真</div>
+        <div class="prog-info">
+          <div class="prog-flag">🇮🇩</div>
+          <div class="prog-name">バリ（インドネシア）</div>
+          <div class="prog-catch">アート×スピリチュアル</div>
+        </div>
+      </a>
+      <a href="wireframe-country.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:120px;">ダナンの写真</div>
+        <div class="prog-info">
+          <div class="prog-flag">🇻🇳</div>
+          <div class="prog-name">ダナン（ベトナム）</div>
+          <div class="prog-catch">新興都市×低コスト</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 目的から探す -->
+  <div class="tab-content" id="tab-purpose">
+    <div class="prog-grid-4">
+      <a href="wireframe-purpose.html" class="prog-card">
+        <div class="prog-img img-placeholder prog-img-4">短期留学のイメージ</div>
+        <div class="prog-info-4">
+          <div class="prog-name-4">短期留学</div>
+          <div class="prog-catch">1週間〜3ヶ月。まず体験してみたい方に。</div>
+        </div>
+      </a>
+      <a href="wireframe-purpose.html" class="prog-card">
+        <div class="prog-img img-placeholder prog-img-4">長期留学のイメージ</div>
+        <div class="prog-info-4">
+          <div class="prog-name-4">長期留学</div>
+          <div class="prog-catch">3ヶ月〜1年以上。本格的に力をつけたい方に。</div>
+        </div>
+      </a>
+      <a href="wireframe-purpose.html" class="prog-card">
+        <div class="prog-img img-placeholder prog-img-4">インターンのイメージ</div>
+        <div class="prog-info-4">
+          <div class="prog-name-4">インターンシップ</div>
+          <div class="prog-catch">海外で実務経験。就活・キャリアアップに。</div>
+        </div>
+      </a>
+      <a href="wireframe-purpose.html" class="prog-card">
+        <div class="prog-img img-placeholder prog-img-4">ボランティアのイメージ</div>
+        <div class="prog-info-4">
+          <div class="prog-name-4">ボランティア</div>
+          <div class="prog-catch">社会貢献×異文化体験。視野を広げたい方に。</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- 年代から探す -->
+  <div class="tab-content" id="tab-age">
+    <div class="prog-grid-7">
+      <a href="wireframe-age.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:100px;">小学生</div>
+        <div class="prog-info"><div class="prog-name">小学生</div><div class="prog-catch">親子留学・体験型</div></div>
+      </a>
+      <a href="wireframe-age.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:100px;">中学生</div>
+        <div class="prog-info"><div class="prog-name">中学生</div><div class="prog-catch">英語の土台づくり</div></div>
+      </a>
+      <a href="wireframe-age.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:100px;">高校生</div>
+        <div class="prog-info"><div class="prog-name">高校生</div><div class="prog-catch">進路×海外体験</div></div>
+      </a>
+      <a href="wireframe-age.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:100px;">大学生</div>
+        <div class="prog-info"><div class="prog-name">大学生</div><div class="prog-catch">就活前に差をつける</div></div>
+      </a>
+      <a href="wireframe-age.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:100px;">社会人</div>
+        <div class="prog-info"><div class="prog-name">社会人</div><div class="prog-catch">キャリアチェンジ</div></div>
+      </a>
+      <a href="wireframe-age.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:100px;">親子</div>
+        <div class="prog-info"><div class="prog-name">親子</div><div class="prog-catch">一緒に体験しよう</div></div>
+      </a>
+      <a href="wireframe-age.html" class="prog-card">
+        <div class="prog-img img-placeholder" style="height:100px;">シニア</div>
+        <div class="prog-info"><div class="prog-name">シニア</div><div class="prog-catch">人生の新章へ</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥FOUNDER -->
+<section id="founder">
+  <div class="sec-label">ABOUT US</div>
+  <div class="founder-wrap">
+    <div class="founder-photo img-placeholder">代表 写真プレースホルダー</div>
+    <div class="founder-text">
+      <div class="founder-name">代表 ○○ ○○（心理士）</div>
+      <h2 class="founder-h2">「留学は、人生を変える<br>最高の体験だと信じています」</h2>
+      <p class="founder-body">
+        私自身、大学時代にセブ島への留学で人生が変わりました。英語を話せるようになっただけでなく、自分の可能性に気づき、視野が大きく広がりました。<br><br>
+        熊本から世界に飛び出したいという人が、費用や情報不足で諦めてほしくない。そんな思いで「くまもと留学相談室」を立ち上げました。心理士としての専門性を活かし、あなたの「なぜ留学したいのか」を一緒に深く掘り下げます。
+      </p>
+      <a href="story.html" class="founder-link">代表の物語をもっと読む →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦VOICES -->
+<section id="voices">
+  <div class="center">
+    <div class="sec-label">VOICES</div>
+    <h2 class="sec-title">参加者の声</h2>
+    <p class="sec-sub">くまもと留学相談室を通じて旅立った方たちのリアルな声です。</p>
+  </div>
+  <div class="voice-grid">
+    <div class="voice-card">
+      <div class="voice-head">
+        <div class="voice-avatar">👩</div>
+        <div class="voice-info">
+          <div class="voice-name">A.K さん（大学2年生）</div>
+          <div class="voice-meta">セブ島 3ヶ月</div>
+        </div>
+      </div>
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">最初は英語ゼロで不安でしたが、カウンセラーさんが「それでも大丈夫」と背中を押してくれました。3ヶ月後には日常会話が普通にできるように。帰国後の就活でも自信を持って話せています。</div>
+      <div class="voice-country">🇵🇭 セブ島（フィリピン）</div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-head">
+        <div class="voice-avatar">👨</div>
+        <div class="voice-info">
+          <div class="voice-name">T.N さん（社会人 28歳）</div>
+          <div class="voice-meta">ハワイ 1ヶ月</div>
+        </div>
+      </div>
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">転職前に英語力をつけたくて相談しました。自分に合った学校を選んでもらえたのはもちろん、帰国後のキャリア相談にも乗っていただき、本当に一貫したサポートでした。</div>
+      <div class="voice-country">🇺🇸 ハワイ（アメリカ）</div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-head">
+        <div class="voice-avatar">👩</div>
+        <div class="voice-info">
+          <div class="voice-name">M.S さん（高校生）</div>
+          <div class="voice-meta">フィジー 2週間</div>
+        </div>
+      </div>
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">親も一緒に相談に参加できたので安心でした。初めての海外でしたが、事前準備から現地でのサポートまでしっかりしていて、楽しく過ごすことができました。</div>
+      <div class="voice-country">🇫🇯 フィジー</div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧FAQ -->
+<section id="faq">
+  <div class="center">
+    <div class="sec-label">FAQ</div>
+    <h2 class="sec-title">よくある質問</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-icon">Q</span>
+        <span class="faq-q-text">本当に紹介料・相談料は無料ですか？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">はい、完全無料です。くまもと留学相談室は提携する語学学校・エージェントからの紹介手数料で運営しています。お客様から費用をいただくことは一切ありません。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-icon">Q</span>
+        <span class="faq-q-text">熊本在住でないと相談できませんか？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">いいえ、全国どこからでもご相談いただけます。オンライン（LINE・ビデオ通話）での対応が中心です。もちろん熊本在住の方は対面でのご相談も可能です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-icon">Q</span>
+        <span class="faq-q-text">英語がまったくできなくても大丈夫ですか？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">大丈夫です。英語ゼロの方こそ大歓迎です。英語力に合った学校・プログラムを選定します。まず英語力を上げるための「予習留学」として短期留学から始める方も多いです。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-icon">Q</span>
+        <span class="faq-q-text">未成年でも相談できますか？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">もちろんです。保護者の方と一緒にご相談いただくことを推奨しています。高校生・中学生の留学実績も多数あります。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-icon">Q</span>
+        <span class="faq-q-text">留学先はどうやって決めるのですか？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">カウンセリングを通じて、目的・予算・期間・英語力・性格などを総合的に分析し、最適な国・学校・プログラムをご提案します。最終的な決定はもちろんご本人・ご家族です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-icon">Q</span>
+        <span class="faq-q-text">渡航後にトラブルがあった場合は？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">LINEや電話でいつでもご連絡ください。学校・住居・健康に関するトラブルを中心に、可能な限りサポートします。現地エージェントとも連携して迅速に対応します。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-icon">Q</span>
+        <span class="faq-q-text">相談から出発まで、どのくらいかかりますか？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">最短で1〜2ヶ月での出発も可能です。ビザ取得が必要な国は2〜3ヶ月が目安です。「まだ決めていないけど情報収集したい」という段階でのご相談も大歓迎です。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question" onclick="toggleFaq(this)">
+        <span class="faq-q-icon">Q</span>
+        <span class="faq-q-text">家族と一緒に相談できますか？</span>
+        <span class="faq-arrow">▼</span>
+      </div>
+      <div class="faq-answer">はい、ぜひご家族一緒にご参加ください。特に高校生以下の方については、保護者の方と一緒に安心してご相談いただけるよう配慮しています。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑨CONTACT -->
+<section id="contact">
+  <div class="contact-title">まずは気軽にご相談を</div>
+  <div class="contact-sub">返信は通常24時間以内。相談だけでも大歓迎です。費用は一切かかりません。</div>
+
+  <div class="contact-channels">
+    <div class="channel-card">
+      <div class="channel-icon">💬</div>
+      <div class="channel-name">LINEで相談する</div>
+      <div class="channel-desc">気軽にメッセージをどうぞ。<br>テキスト・音声・ビデオ通話にも対応。</div>
+      <span class="channel-btn">LINEを開く</span>
+    </div>
+    <div class="channel-card">
+      <div class="channel-icon">📄</div>
+      <div class="channel-name">10秒で簡単 無料資料請求</div>
+      <div class="channel-desc">フォームに入力するだけ。<br>国別・目的別の詳細資料をお送りします。</div>
+      <span class="channel-btn">資料を請求する ↓</span>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-title">無料資料請求フォーム</div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>お名前<span class="req">★必須</span></label>
+        <input type="text" placeholder="山田 太郎">
+      </div>
+      <div class="form-group">
+        <label>年齢・立場<span class="req">★必須</span></label>
+        <select>
+          <option>選択してください</option>
+          <option>小学生（保護者）</option>
+          <option>中学生</option>
+          <option>高校生</option>
+          <option>大学生</option>
+          <option>社会人</option>
+          <option>シニア</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>メールアドレス<span class="req">★必須</span></label>
+        <input type="email" placeholder="example@email.com">
+      </div>
+      <div class="form-group">
+        <label>電話番号<span class="req">★必須</span></label>
+        <input type="tel" placeholder="090-0000-0000">
+      </div>
+      <div class="form-group form-full">
+        <label>気になる国（複数選択可）</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox"> 🇵🇭 セブ島</label>
+          <label><input type="checkbox"> 🇺🇸 ハワイ</label>
+          <label><input type="checkbox"> 🇫🇯 フィジー</label>
+          <label><input type="checkbox"> 🇮🇩 バリ</label>
+          <label><input type="checkbox"> 🇻🇳 ダナン</label>
+          <label><input type="checkbox"> まだ未定</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>希望留学期間</label>
+        <select>
+          <option>選択してください</option>
+          <option>1週間〜2週間</option>
+          <option>1ヶ月</option>
+          <option>2〜3ヶ月</option>
+          <option>半年以上</option>
+          <option>まだ未定</option>
+        </select>
+      </div>
+      <div class="form-group form-full">
+        <label>悩み・質問・ひとこと</label>
+        <textarea rows="4" placeholder="「英語がゼロで不安です」「予算を抑えたい」など、なんでもお気軽にどうぞ。"></textarea>
+      </div>
+    </div>
+    <button class="form-submit">無料で資料請求する →</button>
+    <div class="form-note">送信後、担当カウンセラーから24時間以内にご連絡します。</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">くまもと留学相談室</div>
+        <p class="footer-tagline">熊本から世界へ。<br>心理士が伴走する、<br>あたらしい留学支援。</p>
+      </div>
+      <div>
+        <div class="footer-nav-title">国から探す</div>
+        <ul class="footer-nav-list">
+          <li><a href="wireframe-country.html">🇵🇭 セブ島（フィリピン）</a></li>
+          <li><a href="wireframe-country.html">🇺🇸 ハワイ（アメリカ）</a></li>
+          <li><a href="wireframe-country.html">🇫🇯 フィジー</a></li>
+          <li><a href="wireframe-country.html">🇮🇩 バリ（インドネシア）</a></li>
+          <li><a href="wireframe-country.html">🇻🇳 ダナン（ベトナム）</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-nav-title">目的から探す</div>
+        <ul class="footer-nav-list">
+          <li><a href="wireframe-purpose.html">短期留学</a></li>
+          <li><a href="wireframe-purpose.html">長期留学</a></li>
+          <li><a href="wireframe-purpose.html">インターンシップ</a></li>
+          <li><a href="wireframe-purpose.html">ボランティア</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-nav-title">年代から探す</div>
+        <ul class="footer-nav-list">
+          <li><a href="wireframe-age.html">小学生 / 中学生</a></li>
+          <li><a href="wireframe-age.html">高校生</a></li>
+          <li><a href="wireframe-age.html">大学生</a></li>
+          <li><a href="wireframe-age.html">社会人</a></li>
+          <li><a href="wireframe-age.html">親子 / シニア</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 くまもと留学相談室</span>
+      <span>プライバシーポリシー ／ 特定商取引法に基づく表示</span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT CTA (mobile) -->
+<div class="float-cta">
+  <button class="btn-sub" style="flex:1; padding:12px; font-size:14px;" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">資料請求</button>
+  <button class="btn-main" style="flex:1; padding:12px; font-size:14px;">LINEで相談</button>
+</div>
+
+<script>
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>

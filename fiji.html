@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>フィジー留学 | くまもと留学相談室</title>
+  <meta name="description" content="世界一笑顔の国フィジー留学。日本人比率が低く本物の英語環境。2週間20〜28万円から。くまもと留学相談室が全力サポート。" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --pri: #3d5a80; --acc: #f4a261; --bg1: #e8eef7; --bg2: #fef5ec; --txt: #293241; --sub: #5a7099; --border: #dde5f0; --white: #ffffff; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif; color: var(--txt); line-height: 1.7; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+    #header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 68px; background: transparent; transition: background .3s, box-shadow .3s; }
+    #header.scrolled { background: var(--white); box-shadow: 0 2px 16px rgba(0,0,0,.10); }
+    .logo { font-size: 1.15rem; font-weight: 800; color: var(--white); transition: color .3s; }
+    #header.scrolled .logo { color: var(--pri); }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { font-size: .88rem; font-weight: 600; color: rgba(255,255,255,.92); transition: color .3s; }
+    #header.scrolled .nav-links a { color: var(--txt); }
+    .nav-links a:hover { color: var(--acc); }
+    .header-ctas { display: flex; gap: 10px; }
+    .btn-line { background: var(--acc); color: var(--white); padding: 9px 20px; border-radius: 50px; font-size: .85rem; font-weight: 700; }
+    .btn-doc { background: transparent; color: var(--white); padding: 8px 18px; border-radius: 50px; font-size: .85rem; font-weight: 700; border: 2px solid rgba(255,255,255,.75); }
+    #header.scrolled .btn-doc { border-color: var(--pri); color: var(--pri); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: background .3s; }
+    #header.scrolled .hamburger span { background: var(--txt); }
+    .mobile-nav { display: none; position: fixed; top: 68px; left: 0; right: 0; background: var(--white); padding: 24px 32px; box-shadow: 0 8px 24px rgba(0,0,0,.12); z-index: 999; flex-direction: column; gap: 16px; }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a { font-size: 1rem; font-weight: 600; color: var(--txt); padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .mobile-ctas { display: flex; flex-direction: column; gap: 10px; padding-top: 8px; }
+    .mobile-ctas .btn-doc { border-color: var(--pri); color: var(--pri); text-align: center; }
+    .mobile-ctas .btn-line { text-align: center; }
+    .country-hero { height: 70vh; min-height: 480px; position: relative; background: url('images/fiji3.jpg') center/cover no-repeat; display: flex; align-items: flex-end; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,20,40,.85) 0%, rgba(10,20,40,.25) 60%, transparent 100%); }
+    .hero-content { position: relative; z-index: 1; padding: 0 10% 8%; }
+    .breadcrumb { font-size: .8rem; color: rgba(255,255,255,.6); margin-bottom: 12px; }
+    .breadcrumb a { color: rgba(255,255,255,.6); }
+    .breadcrumb a:hover { color: var(--acc); }
+    .country-flag-big { font-size: 2.5rem; margin-bottom: 8px; }
+    .country-h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: var(--white); line-height: 1.2; margin-bottom: 10px; text-shadow: 0 2px 12px rgba(0,0,0,.55), 0 1px 4px rgba(0,0,0,.4); }
+    .country-catch { font-size: clamp(.9rem, 2vw, 1.1rem); color: rgba(255,255,255,.92); text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+    .sec { padding: 80px 40px; }
+    .sec-inner { max-width: 1100px; margin: 0 auto; }
+    .sec-tag { display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .12em; color: var(--acc); background: var(--bg2); padding: 4px 12px; border-radius: 50px; margin-bottom: 12px; }
+    .sec-title { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 800; color: var(--pri); line-height: 1.3; margin-bottom: 12px; }
+    .sec-lead { font-size: .95rem; color: var(--sub); }
+    .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 36px; }
+    .fact-box { background: var(--bg1); border-radius: 12px; padding: 24px 20px; text-align: center; }
+    .fact-icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .fact-label { font-size: .75rem; font-weight: 700; color: var(--sub); letter-spacing: .08em; margin-bottom: 6px; }
+    .fact-val { font-size: 1.05rem; font-weight: 800; color: var(--pri); }
+    .fact-sub { font-size: .8rem; color: var(--sub); margin-top: 4px; }
+    .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 36px; }
+    .feature-card { border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
+    .feature-title { font-size: 1rem; font-weight: 800; color: var(--pri); margin-bottom: 8px; }
+    .feature-body { font-size: .88rem; color: var(--sub); line-height: 1.65; }
+    .checklist { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .check-item { display: flex; align-items: flex-start; gap: 10px; font-size: .95rem; color: var(--txt); }
+    .check-item::before { content: '✓'; color: var(--acc); font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    .prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+    .prog-card { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+    .prog-head { background: var(--pri); padding: 20px; }
+    .prog-duration { font-size: .75rem; font-weight: 700; color: var(--acc); letter-spacing: .08em; margin-bottom: 4px; }
+    .prog-name { font-size: 1rem; font-weight: 800; color: var(--white); }
+    .prog-body { padding: 20px; }
+    .prog-price { font-size: 1.3rem; font-weight: 800; color: var(--pri); margin-bottom: 12px; }
+    .prog-price span { font-size: .8rem; font-weight: 400; color: var(--sub); }
+    .prog-features { display: flex; flex-direction: column; gap: 6px; }
+    .prog-features li { font-size: .85rem; color: var(--sub); list-style: none; display: flex; align-items: center; gap: 6px; }
+    .prog-features li::before { content: '•'; color: var(--acc); }
+    #country-cta { background: var(--pri); text-align: center; }
+    #country-cta .sec-title { color: var(--white); }
+    #country-cta .sec-lead { color: rgba(255,255,255,.75); margin: 0 auto 32px; max-width: 500px; }
+    .cta-btns { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .btn-acc { background: var(--acc); color: var(--white); padding: 15px 32px; border-radius: 50px; font-size: 1rem; font-weight: 800; box-shadow: 0 4px 20px rgba(244,162,97,.4); transition: opacity .2s; }
+    .btn-acc:hover { opacity: .88; }
+    .btn-wh { background: transparent; color: var(--white); padding: 13px 28px; border-radius: 50px; font-size: .95rem; font-weight: 700; border: 2px solid rgba(255,255,255,.6); transition: background .2s; }
+    .btn-wh:hover { background: rgba(255,255,255,.1); }
+    footer { background: #1a2535; padding: 40px; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+    .footer-logo { font-size: 1rem; font-weight: 800; color: var(--white); }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { font-size: .85rem; color: rgba(255,255,255,.55); transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-copy { font-size: .78rem; color: rgba(255,255,255,.35); width: 100%; text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.08); margin-top: 16px; }
+    @media (max-width: 768px) {
+      #header { padding: 0 24px; } .nav-links, .header-ctas { display: none; } .hamburger { display: flex; }
+      .sec { padding: 56px 24px; } .facts-grid { grid-template-columns: repeat(2, 1fr); } .features-grid, .prog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header id="header">
+  <a href="index.html" class="logo">くまもと留学相談室</a>
+  <ul class="nav-links">
+    <li><a href="index.html#programs">国から探す</a></li>
+    <li><a href="wireframe-purpose.html">目的別</a></li>
+    <li><a href="wireframe-age.html">年代別</a></li>
+    <li><a href="story.html">代表について</a></li>
+    <li><a href="index.html#faq">よくある質問</a></li>
+  </ul>
+  <div class="header-ctas">
+    <a href="https://lin.ee/tZyufz4" class="btn-line" target="_blank" rel="noopener">LINEで無料相談</a>
+    <a href="index.html#contact" class="btn-doc">まずは資料請求</a>
+  </div>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</header>
+<nav class="mobile-nav" id="mobileNav">
+  <a href="index.html#programs">国から探す</a>
+  <a href="wireframe-purpose.html">目的別</a>
+  <a href="wireframe-age.html">年代別</a>
+  <a href="story.html">代表について</a>
+  <a href="index.html#faq">よくある質問</a>
+  <div class="mobile-ctas">
+    <a href="https://lin.ee/tZyufz4" class="btn-line" target="_blank" rel="noopener">LINEで無料相談</a>
+    <a href="index.html#contact" class="btn-doc">まずは資料請求</a>
+  </div>
+</nav>
+
+<section class="country-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="breadcrumb"><a href="index.html">TOP</a> &gt; <a href="index.html#programs">国から探す</a> &gt; フィジー</p>
+    <div class="country-flag-big">🇫🇯</div>
+    <h1 class="country-h1">フィジー留学</h1>
+    <p class="country-catch">幸福度世界1位の国で、"自分らしい幸せ"を見つける留学。</p>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--bg1);">
+  <div class="sec-inner">
+    <div class="sec-tag">QUICK FACTS</div>
+    <h2 class="sec-title">フィジー留学とは？</h2>
+    <div class="facts-grid">
+      <div class="fact-box"><div class="fact-icon">💰</div><div class="fact-label">1週間〜の費用目安</div><div class="fact-val">¥83,100〜</div></div>
+      <div class="fact-box"><div class="fact-icon">🌈</div><div class="fact-label">MY COLOR FIJI</div><div class="fact-val">2週間 ¥196,200〜</div></div>
+      <div class="fact-box"><div class="fact-icon">📚</div><div class="fact-label">1日のレッスン数</div><div class="fact-val">6コマ</div><div class="fact-sub">マンツーマン含む</div></div>
+      <div class="fact-box"><div class="fact-icon">🤝</div><div class="fact-label">ボランティア</div><div class="fact-val">参加可能</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--white);">
+  <div class="sec-inner">
+    <div class="sec-tag">FEATURES</div>
+    <h2 class="sec-title">フィジー留学の魅力</h2>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon">😊</div><div class="feature-title">幸福度世界1位の国で英語を学ぶ</div><p class="feature-body">フィジーは幸福度調査で世界1位に輝いた国。穏やかな人々と大自然の中で、のびのびと英語を学べます。「英語を学ぶ」だけでなく、"幸せな生き方"を体感できる環境です。</p></div>
+      <div class="feature-card"><div class="feature-icon">📖</div><div class="feature-title">1日6コマの充実レッスン</div><p class="feature-body">マンツーマン1コマ・少人数グループ4コマ・セルフスタディ1コマの計6コマ構成。個人の弱点を丁寧に補いながら、バランスよく英語力を伸ばせます。</p></div>
+      <div class="feature-card"><div class="feature-icon">🌍</div><div class="feature-title">MY COLOR FIJI — 朝英語・午後フィールドワーク</div><p class="feature-body">午前は英語授業、午後は村訪問・NPO活動・環境体験などのフィールドワーク。2週間の特別プログラムで、最終日にはプレゼン発表を行います。</p></div>
+      <div class="feature-card"><div class="feature-icon">🌱</div><div class="feature-title">ボランティア活動に参加できる</div><p class="feature-body">現地コミュニティや環境保護活動へのボランティア参加が可能。語学力だけでなく、社会貢献と自己成長を同時に体験できます。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:linear-gradient(160deg,var(--bg1) 0%,var(--bg2) 100%);">
+  <div class="sec-inner">
+    <div class="sec-tag">RECOMMENDED FOR</div>
+    <h2 class="sec-title">こんな人におすすめ</h2>
+    <div class="checklist">
+      <div class="check-item">英語学習と人生経験を同時に積みたい</div>
+      <div class="check-item">少人数〜マンツーマンでしっかり英語を伸ばしたい</div>
+      <div class="check-item">ボランティアや社会貢献活動に興味がある</div>
+      <div class="check-item">フィールドワークを通じて多様な価値観に触れたい</div>
+      <div class="check-item">コスパよく長期留学したい</div>
+      <div class="check-item">"幸せな生き方"について自分と向き合いたい</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="background:var(--white);">
+  <div class="sec-inner">
+    <div class="sec-tag">PROGRAMS</div>
+    <h2 class="sec-title">コース紹介（Colors Fiji）</h2>
+    <div class="prog-grid">
+      <div class="prog-card">
+        <div class="prog-head"><div class="prog-duration">STANDARD</div><div class="prog-name">スタンダードプログラム</div></div>
+        <div class="prog-body">
+          <div class="prog-price">¥83,100〜<span>（1週間〜）</span></div>
+          <ul class="prog-features">
+            <li>1週間 ¥83,100〜 / 4週間 ¥212,400〜</li>
+            <li>マンツーマン1コマ + グループ4コマ</li>
+            <li>セルフスタディ1コマ（計1日6コマ）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-head"><div class="prog-duration">2 WEEKS SPECIAL</div><div class="prog-name">MY COLOR FIJI</div></div>
+        <div class="prog-body">
+          <div class="prog-price">¥196,200〜<span>（2週間）</span></div>
+          <ul class="prog-features">
+            <li>午前：英語レッスン</li>
+            <li>午後：フィールドワーク（村・NPO・環境施設）</li>
+            <li>最終日：プレゼン発表</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prog-card">
+        <div class="prog-head"><div class="prog-duration">OPTION</div><div class="prog-name">ボランティアプログラム</div></div>
+        <div class="prog-body">
+          <div class="prog-price">要相談<span>（スタンダードと組み合わせ可）</span></div>
+          <ul class="prog-features">
+            <li>現地コミュニティ支援</li>
+            <li>環境保護活動</li>
+            <li>スタンダードコースと組み合わせ可</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="country-cta" class="sec">
+  <div class="sec-inner">
+    <div class="sec-tag" style="background:rgba(255,255,255,.15);color:var(--acc);">GET STARTED</div>
+    <h2 class="sec-title">フィジー留学を検討中ですか？</h2>
+    <p class="sec-lead">まずは無料相談から。費用・期間・おすすめプログラムなど、詳しく教えます。</p>
+    <div class="cta-btns">
+      <a href="https://lin.ee/tZyufz4" class="btn-acc" target="_blank" rel="noopener">LINEで無料相談する</a>
+      <a href="index.html#contact" class="btn-wh">資料請求フォームへ</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">くまもと留学相談室</div>
+    <div class="footer-links">
+      <a href="index.html">TOP</a>
+      <a href="cebu.html">セブ島</a>
+      <a href="hawaii.html">ハワイ</a>
+      <a href="bali.html">バリ</a>
+      <a href="danang.html">ダナン</a>
+      <a href="https://www.instagram.com/kumamoto_ryugaku/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <p class="footer-copy">© 2025 くまもと留学相談室 All Rights Reserved.</p>
+  </div>
+</footer>
+<script>
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 60); });
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  hamburger.addEventListener('click', () => { const open = mobileNav.classList.toggle('open'); document.body.style.overflow = open ? 'hidden' : ''; });
+  mobileNav.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => { mobileNav.classList.remove('open'); document.body.style.overflow = ''; }); });
+</script>
+</body>
+</html>
