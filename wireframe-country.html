@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>セブ島（フィリピン）留学 | くまもと留学相談室</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pri:    #3d5a80;
+  --pri-dk: #293a5a;
+  --acc:    #f4a261;
+  --acc-dk: #e08040;
+  --bg1:    #e8eef7;
+  --bg2:    #fef5ec;
+  --white:  #ffffff;
+  --txt:    #293241;
+  --sub:    #5a7099;
+  --border: #dde5f0;
+  --shadow: 0 2px 12px rgba(61,90,128,.10);
+}
+
+body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; color: var(--txt); line-height: 1.7; }
+
+.wf-bar {
+  background: #fff3cd; border-bottom: 2px dashed #f0ad4e;
+  padding: 6px 20px; font-size: 11px; font-weight: 700; color: #856404;
+  text-align: center; letter-spacing: .05em;
+}
+
+header {
+  background: rgba(255,255,255,.97); border-bottom: 1px solid var(--border);
+  height: 64px; display: flex; align-items: center;
+  padding: 0 40px; gap: 24px;
+}
+.logo { color: var(--pri); font-size: 17px; font-weight: 700; margin-right: auto; text-decoration: none; }
+nav a { color: var(--txt); font-size: 13px; text-decoration: none; opacity: .8; margin-left: 20px; }
+.header-cta { background: var(--acc); color: #fff; border: none; padding: 9px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; margin-left: 20px; }
+
+section { padding: 64px 40px; }
+.sec-label { font-size: 11px; font-weight: 700; letter-spacing: .15em; color: var(--sub); margin-bottom: 10px; }
+.sec-title { font-size: 26px; font-weight: 700; color: var(--txt); margin-bottom: 10px; line-height: 1.4; }
+.sec-sub { font-size: 14px; color: var(--sub); }
+.img-placeholder { background: var(--bg1); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: var(--sub); font-size: 12px; font-weight: 600; }
+
+/* ── BREADCRUMB ── */
+.breadcrumb { background: var(--white); padding: 14px 40px; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--sub); }
+.breadcrumb a { color: var(--pri); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ── COUNTRY HERO ── */
+#country-hero {
+  background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%);
+  padding: 64px 40px;
+  display: grid; grid-template-columns: 1fr 480px; gap: 48px; align-items: center;
+}
+.ch-left { }
+.ch-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border); color: var(--sub); font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; box-shadow: var(--shadow); }
+.ch-h1 { font-size: 36px; font-weight: 700; line-height: 1.35; margin-bottom: 14px; }
+.ch-catch { font-size: 18px; color: var(--pri); font-weight: 700; margin-bottom: 16px; }
+.ch-sub { font-size: 15px; color: var(--sub); line-height: 1.9; margin-bottom: 28px; }
+.ch-btns { display: flex; gap: 12px; }
+.btn-main { background: var(--acc); color: #fff; border: none; padding: 14px 28px; border-radius: 20px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.btn-sub { background: transparent; color: var(--pri); border: 2px solid var(--pri); padding: 14px 24px; border-radius: 20px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.ch-img { height: 340px; }
+
+/* ── QUICK FACTS ── */
+#facts { background: var(--white); }
+.facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
+.fact-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px; text-align: center; box-shadow: var(--shadow); }
+.fact-icon { font-size: 36px; margin-bottom: 10px; }
+.fact-label { font-size: 12px; color: var(--sub); font-weight: 700; letter-spacing: .08em; margin-bottom: 8px; }
+.fact-value { font-size: 22px; font-weight: 700; color: var(--pri); margin-bottom: 6px; }
+.fact-note { font-size: 12px; color: var(--sub); }
+
+/* ── WHAT'S GREAT ── */
+#great { background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
+.great-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
+.great-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 28px; box-shadow: var(--shadow); display: flex; gap: 16px; }
+.great-icon { font-size: 40px; flex-shrink: 0; }
+.great-title { font-size: 16px; font-weight: 700; color: var(--txt); margin-bottom: 8px; }
+.great-body { font-size: 13px; color: var(--sub); line-height: 1.8; }
+
+/* ── RECOMMENDED FOR ── */
+#recommend { background: var(--white); }
+.rec-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; align-items: start; }
+.rec-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.rec-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--txt); line-height: 1.7; }
+.rec-list li::before { content: '✓'; color: var(--acc); font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+.rec-img { height: 300px; }
+
+/* ── GALLERY ── */
+#gallery { background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
+.gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 200px 200px; gap: 12px; margin-top: 40px; }
+.gallery-grid .main-img { grid-row: span 2; border-radius: 16px; }
+.gallery-grid .sub-img { border-radius: 12px; }
+
+/* ── PROGRAMS ── */
+#country-programs { background: var(--white); }
+.prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.prog-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); }
+.prog-badge { display: inline-block; background: var(--bg1); color: var(--pri); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; margin-bottom: 12px; }
+.prog-title { font-size: 16px; font-weight: 700; color: var(--txt); margin-bottom: 8px; }
+.prog-meta { display: flex; flex-direction: column; gap: 4px; margin-bottom: 16px; }
+.prog-meta span { font-size: 13px; color: var(--sub); }
+.prog-meta span::before { margin-right: 4px; }
+.prog-btn { display: block; text-align: center; background: var(--acc); color: #fff; border: none; padding: 10px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer; text-decoration: none; }
+
+/* ── CTA ── */
+#country-cta { background: var(--pri); padding: 72px 40px; text-align: center; }
+.cta-h2 { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.cta-sub { font-size: 15px; color: rgba(255,255,255,.8); margin-bottom: 40px; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; }
+.cta-btn-main { background: var(--acc); color: #fff; border: none; padding: 16px 36px; border-radius: 20px; font-size: 16px; font-weight: 700; cursor: pointer; }
+.cta-btn-sub { background: rgba(255,255,255,.15); color: #fff; border: 2px solid rgba(255,255,255,.5); padding: 16px 32px; border-radius: 20px; font-size: 16px; font-weight: 700; cursor: pointer; }
+
+/* ── FOOTER ── */
+footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; font-size: 13px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.footer-nav { display: flex; gap: 24px; }
+.footer-nav a { color: rgba(255,255,255,.65); text-decoration: none; font-size: 13px; }
+.footer-nav a:hover { color: #fff; }
+
+@media (max-width: 960px) {
+  #country-hero { grid-template-columns: 1fr; }
+  .ch-img { height: 220px; }
+  .facts-grid { grid-template-columns: 1fr 1fr; }
+  .great-grid { grid-template-columns: 1fr; }
+  .rec-wrap { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery-grid .main-img { grid-row: span 1; }
+  .prog-grid { grid-template-columns: 1fr; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  header { padding: 0 20px; }
+  header nav { display: none; }
+  section { padding: 48px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="wf-bar">WIREFRAME ― 国紹介ページテンプレート（セブ島を代表例として表示）</div>
+
+<header>
+  <a href="wireframe.html" class="logo">くまもと留学相談室</a>
+  <nav>
+    <a href="wireframe.html#programs">国から探す</a>
+    <a href="wireframe.html#programs">目的別</a>
+    <a href="wireframe.html#programs">年代別</a>
+    <a href="wireframe.html#faq">よくある質問</a>
+    <a href="wireframe.html#founder">代表について</a>
+  </nav>
+  <button class="header-cta" onclick="document.getElementById('country-cta').scrollIntoView({behavior:'smooth'})">無料相談</button>
+</header>
+
+<div class="breadcrumb">
+  <a href="wireframe.html">トップ</a> ＞ <a href="wireframe.html#programs">国から探す</a> ＞ セブ島（フィリピン）
+</div>
+
+<!-- COUNTRY HERO -->
+<section id="country-hero">
+  <div class="ch-left">
+    <div class="ch-tag">🇵🇭 フィリピン</div>
+    <h1 class="ch-h1">セブ島留学</h1>
+    <div class="ch-catch">コスパ最強の英語留学先</div>
+    <p class="ch-sub">
+      欧米留学の1/3以下のコストで、マンツーマン授業が受けられる。<br>
+      年間平均気温28℃の常夏の島で、英語も人間力も磨いてきませんか。
+    </p>
+    <div class="ch-btns">
+      <button class="btn-main" onclick="document.getElementById('country-cta').scrollIntoView({behavior:'smooth'})">セブ島留学を相談する →</button>
+      <button class="btn-sub">資料を受け取る</button>
+    </div>
+  </div>
+  <div class="ch-img img-placeholder">セブ島の写真<br>（海・語学学校・街並み）</div>
+</section>
+
+<!-- QUICK FACTS -->
+<section id="facts">
+  <div class="sec-label">QUICK FACTS</div>
+  <h2 class="sec-title">セブ島 基本データ</h2>
+  <div class="facts-grid">
+    <div class="fact-card">
+      <div class="fact-icon">💰</div>
+      <div class="fact-label">費用目安（1ヶ月）</div>
+      <div class="fact-value">25〜40万円</div>
+      <div class="fact-note">授業料・寮費・食費込み</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-icon">🌡️</div>
+      <div class="fact-label">年間平均気温</div>
+      <div class="fact-value">約28℃</div>
+      <div class="fact-note">通年温暖・南国気候</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-icon">🗣️</div>
+      <div class="fact-label">英語通じやすさ</div>
+      <div class="fact-value">★★★★☆</div>
+      <div class="fact-note">第2公用語として普及</div>
+    </div>
+    <div class="fact-card">
+      <div class="fact-icon">📅</div>
+      <div class="fact-label">おすすめ期間</div>
+      <div class="fact-value">1〜3ヶ月</div>
+      <div class="fact-note">短期から長期まで対応</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S GREAT -->
+<section id="great">
+  <div class="sec-label">WHY CEBU</div>
+  <h2 class="sec-title">セブ島を選ぶ4つの理由</h2>
+  <div class="great-grid">
+    <div class="great-card">
+      <div class="great-icon">💸</div>
+      <div>
+        <div class="great-title">圧倒的なコストパフォーマンス</div>
+        <div class="great-body">欧米留学の1/3以下の費用で、質の高いマンツーマン授業が受けられます。予算を抑えながらも英語力を本格的に伸ばしたい方に最適です。</div>
+      </div>
+    </div>
+    <div class="great-card">
+      <div class="great-icon">👥</div>
+      <div>
+        <div class="great-title">マンツーマン授業が充実</div>
+        <div class="great-body">フィリピンの語学学校ではマンツーマンレッスンが標準。先生との距離が近く、弱点を集中的に鍛えられます。</div>
+      </div>
+    </div>
+    <div class="great-card">
+      <div class="great-icon">🌊</div>
+      <div>
+        <div class="great-title">常夏の過ごしやすい環境</div>
+        <div class="great-body">年間28℃の温暖な気候。海・ダイビング・BBQなど、放課後も充実した生活が楽しめます。勉強と遊びを両立できます。</div>
+      </div>
+    </div>
+    <div class="great-card">
+      <div class="great-icon">✈️</div>
+      <div>
+        <div class="great-title">日本から近い・時差が少ない</div>
+        <div class="great-body">熊本・福岡から直行便で約3〜4時間。時差は1時間のみ。初めての海外留学でも安心して挑戦できます。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDED FOR -->
+<section id="recommend">
+  <div class="sec-label">WHO IS THIS FOR</div>
+  <h2 class="sec-title">こんな人におすすめ</h2>
+  <div class="rec-wrap">
+    <ul class="rec-list">
+      <li>英語がほぼゼロだけど本格的に伸ばしたい</li>
+      <li>費用を抑えながら留学したい</li>
+      <li>初めての海外留学で安心感が欲しい</li>
+      <li>短期（1ヶ月〜）から試してみたい</li>
+      <li>マンツーマンで集中的に英語を学びたい</li>
+      <li>南国の気候でリフレッシュしながら学びたい</li>
+      <li>日本から近い場所でまず海外経験を積みたい</li>
+    </ul>
+    <div class="rec-img img-placeholder">おすすめイメージ写真</div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="sec-label">GALLERY</div>
+  <h2 class="sec-title">セブ島の留学イメージ</h2>
+  <div class="gallery-grid">
+    <div class="main-img img-placeholder">メイン写真<br>（海・ビーチ）</div>
+    <div class="sub-img img-placeholder">語学学校の教室</div>
+    <div class="sub-img img-placeholder">寮・学生生活</div>
+    <div class="sub-img img-placeholder">街並み・ショッピング</div>
+    <div class="sub-img img-placeholder">アクティビティ</div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="country-programs">
+  <div class="sec-label">PROGRAMS</div>
+  <h2 class="sec-title">セブ島で選べるプログラム</h2>
+  <p class="sec-sub">くまもと留学相談室が厳選した提携学校のプログラムです。</p>
+  <div class="prog-grid">
+    <div class="prog-card">
+      <div class="prog-badge">人気 No.1</div>
+      <div class="prog-title">短期英語集中プログラム</div>
+      <div class="prog-meta">
+        <span>📅 2週間〜3ヶ月</span>
+        <span>💰 25万円〜（1ヶ月）</span>
+        <span>🎯 英語力向上・初挑戦</span>
+      </div>
+      <a href="wireframe-purpose.html" class="prog-btn">詳しく見る →</a>
+    </div>
+    <div class="prog-card">
+      <div class="prog-badge">大学生に人気</div>
+      <div class="prog-title">インターンシップ留学</div>
+      <div class="prog-meta">
+        <span>📅 1〜3ヶ月</span>
+        <span>💰 30万円〜</span>
+        <span>🎯 就活・キャリアアップ</span>
+      </div>
+      <a href="wireframe-purpose.html" class="prog-btn">詳しく見る →</a>
+    </div>
+    <div class="prog-card">
+      <div class="prog-badge">長期おすすめ</div>
+      <div class="prog-title">語学留学 + 資格取得</div>
+      <div class="prog-meta">
+        <span>📅 3ヶ月〜6ヶ月</span>
+        <span>💰 55万円〜</span>
+        <span>🎯 IELTS・TOEIC対策</span>
+      </div>
+      <a href="wireframe-purpose.html" class="prog-btn">詳しく見る →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="country-cta">
+  <h2 class="cta-h2">セブ島への留学、一緒に考えませんか？</h2>
+  <p class="cta-sub">無料相談・資料請求はこちらから。費用は一切かかりません。</p>
+  <div class="cta-btns">
+    <button class="cta-btn-main">💬 LINEで相談する</button>
+    <button class="cta-btn-sub">📄 無料資料を請求する</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">くまもと留学相談室</div>
+      <div>© 2025 くまもと留学相談室</div>
+    </div>
+    <nav class="footer-nav">
+      <a href="wireframe.html">トップ</a>
+      <a href="wireframe.html#programs">プログラム</a>
+      <a href="wireframe.html#contact">お問い合わせ</a>
+      <a href="wireframe.html#faq">よくある質問</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

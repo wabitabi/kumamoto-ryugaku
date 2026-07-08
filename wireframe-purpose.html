@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>長期留学 | くまもと留学相談室</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pri:    #3d5a80;
+  --pri-dk: #293a5a;
+  --acc:    #f4a261;
+  --acc-dk: #e08040;
+  --bg1:    #e8eef7;
+  --bg2:    #fef5ec;
+  --white:  #ffffff;
+  --txt:    #293241;
+  --sub:    #5a7099;
+  --border: #dde5f0;
+  --shadow: 0 2px 12px rgba(61,90,128,.10);
+}
+
+body { font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif; color: var(--txt); line-height: 1.7; }
+
+header {
+  background: rgba(255,255,255,.97); border-bottom: 1px solid var(--border);
+  height: 64px; display: flex; align-items: center; padding: 0 40px; gap: 24px;
+}
+.logo { color: var(--pri); font-size: 17px; font-weight: 700; margin-right: auto; text-decoration: none; }
+nav a { color: var(--txt); font-size: 13px; text-decoration: none; opacity: .8; margin-left: 20px; }
+.header-cta { background: var(--acc); color: #fff; border: none; padding: 9px 20px; border-radius: 20px; font-size: 13px; font-weight: 700; cursor: pointer; margin-left: 20px; }
+
+.breadcrumb { background: var(--white); padding: 14px 40px; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--sub); }
+.breadcrumb a { color: var(--pri); text-decoration: none; }
+
+section { padding: 64px 40px; }
+.sec-label { font-size: 11px; font-weight: 700; letter-spacing: .15em; color: var(--sub); margin-bottom: 10px; }
+.sec-title { font-size: 26px; font-weight: 700; color: var(--txt); margin-bottom: 10px; line-height: 1.4; }
+.sec-sub { font-size: 14px; color: var(--sub); line-height: 1.9; }
+
+/* ── PURPOSE NAV ── */
+.purpose-nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; gap: 0; }
+.pnav-item { padding: 14px 24px; font-size: 13px; font-weight: 700; color: var(--sub); cursor: pointer; border-bottom: 3px solid transparent; text-decoration: none; display: block; }
+.pnav-item:hover { color: var(--pri); }
+.pnav-item.active { color: var(--pri); border-bottom-color: var(--acc); }
+
+/* ── HERO ── */
+#purpose-hero {
+  background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%);
+  padding: 64px 40px;
+  display: grid; grid-template-columns: 1fr 440px; gap: 48px; align-items: center;
+}
+.ph-tag { display: inline-flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--border); color: var(--sub); font-size: 12px; font-weight: 700; padding: 5px 14px; border-radius: 20px; margin-bottom: 16px; box-shadow: var(--shadow); }
+.ph-h1 { font-size: 36px; font-weight: 700; line-height: 1.35; margin-bottom: 14px; }
+.ph-h1 em { color: var(--pri); font-style: normal; }
+.ph-catch { font-size: 17px; color: var(--pri); font-weight: 700; margin-bottom: 16px; }
+.ph-sub { font-size: 15px; color: var(--sub); line-height: 1.9; margin-bottom: 28px; }
+.ph-btns { display: flex; gap: 12px; }
+.btn-main { background: var(--acc); color: #fff; border: none; padding: 14px 28px; border-radius: 20px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.btn-sub { background: transparent; color: var(--pri); border: 2px solid var(--pri); padding: 14px 24px; border-radius: 20px; font-size: 15px; font-weight: 700; cursor: pointer; }
+.ph-img { height: 320px; border-radius: 16px; overflow: hidden; }
+.ph-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── WHAT IS IT ── */
+#what { background: var(--white); }
+.what-wrap { display: grid; grid-template-columns: 1fr 400px; gap: 48px; align-items: center; margin-top: 40px; }
+.what-body { font-size: 15px; color: var(--sub); line-height: 2; }
+.what-img { height: 300px; border-radius: 16px; overflow: hidden; }
+.what-img img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── MERITS ── */
+#merits { background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
+.merit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
+.merit-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 28px; box-shadow: var(--shadow); display: flex; gap: 16px; }
+.merit-num { width: 44px; height: 44px; background: var(--pri); color: #fff; border-radius: 50%; font-size: 18px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.merit-title { font-size: 16px; font-weight: 700; color: var(--txt); margin-bottom: 8px; }
+.merit-body { font-size: 13px; color: var(--sub); line-height: 1.8; }
+
+/* ── RECOMMENDED FOR ── */
+#recommend { background: var(--white); }
+.rec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 40px; align-items: start; }
+.rec-title { font-size: 15px; font-weight: 700; color: var(--txt); margin-bottom: 16px; }
+.check-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.check-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--txt); line-height: 1.7; }
+.check-list li::before { content: '✓'; color: var(--acc); font-weight: 700; font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+.cross-list li::before { content: '→'; color: var(--sub); }
+
+/* ── COUNTRIES ── */
+#countries { background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
+.country-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 40px; }
+.country-card { background: var(--white); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); text-decoration: none; color: var(--txt); transition: transform .15s; display: block; }
+.country-card:hover { transform: translateY(-3px); }
+.country-img { height: 100px; overflow: hidden; }
+.country-img img { width: 100%; height: 100%; object-fit: cover; }
+.country-info { padding: 12px; }
+.country-flag { font-size: 20px; margin-bottom: 4px; }
+.country-name { font-size: 13px; font-weight: 700; margin-bottom: 3px; }
+.country-period { font-size: 11px; color: var(--sub); }
+
+/* ── TIMELINE ── */
+#timeline { background: var(--white); }
+.timeline { display: flex; gap: 0; margin-top: 40px; position: relative; }
+.timeline::before { content: ''; position: absolute; top: 28px; left: 28px; right: 28px; height: 2px; background: var(--border); z-index: 0; }
+.tl-step { flex: 1; text-align: center; position: relative; z-index: 1; padding: 0 8px; }
+.tl-dot { width: 56px; height: 56px; background: var(--white); border: 3px solid var(--pri); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; margin: 0 auto 14px; }
+.tl-month { font-size: 11px; font-weight: 700; color: var(--acc); letter-spacing: .08em; margin-bottom: 6px; }
+.tl-title { font-size: 13px; font-weight: 700; color: var(--txt); margin-bottom: 6px; }
+.tl-body { font-size: 12px; color: var(--sub); line-height: 1.7; }
+
+/* ── VOICES ── */
+#voices { background: linear-gradient(150deg, var(--bg1) 0%, var(--bg2) 100%); }
+.voice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+.voice-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 28px; box-shadow: var(--shadow); }
+.voice-head { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.voice-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--bg1); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.voice-name { font-size: 14px; font-weight: 700; color: var(--txt); }
+.voice-meta { font-size: 12px; color: var(--sub); }
+.voice-stars { color: var(--acc); font-size: 16px; margin-bottom: 10px; }
+.voice-text { font-size: 13px; color: var(--sub); line-height: 1.9; }
+.voice-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--bg1); color: var(--pri); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; margin-top: 14px; }
+
+/* ── CTA ── */
+#purpose-cta { background: var(--pri); padding: 72px 40px; text-align: center; }
+.cta-h2 { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.cta-sub { font-size: 15px; color: rgba(255,255,255,.8); margin-bottom: 40px; }
+.cta-btns { display: flex; gap: 16px; justify-content: center; }
+.cta-btn-main { background: var(--acc); color: #fff; border: none; padding: 16px 36px; border-radius: 20px; font-size: 16px; font-weight: 700; cursor: pointer; }
+.cta-btn-sub { background: rgba(255,255,255,.15); color: #fff; border: 2px solid rgba(255,255,255,.5); padding: 16px 32px; border-radius: 20px; font-size: 16px; font-weight: 700; cursor: pointer; }
+
+footer { background: var(--txt); color: rgba(255,255,255,.7); padding: 40px; font-size: 13px; }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { color: #fff; font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+.footer-nav { display: flex; gap: 24px; }
+.footer-nav a { color: rgba(255,255,255,.65); text-decoration: none; font-size: 13px; }
+
+@media (max-width: 960px) {
+  #purpose-hero { grid-template-columns: 1fr; }
+  .ph-img { height: 220px; }
+  .what-wrap { grid-template-columns: 1fr; }
+  .what-img { height: 200px; }
+  .merit-grid { grid-template-columns: 1fr; }
+  .rec-grid { grid-template-columns: 1fr; }
+  .country-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline { flex-direction: column; gap: 16px; }
+  .timeline::before { display: none; }
+  .voice-grid { grid-template-columns: 1fr; }
+  .cta-btns { flex-direction: column; align-items: center; }
+  header { padding: 0 20px; }
+  header nav { display: none; }
+  section { padding: 48px 20px; }
+  .purpose-nav { padding: 0 20px; overflow-x: auto; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">くまもと留学相談室</a>
+  <nav>
+    <a href="index.html#programs">国から探す</a>
+    <a href="wireframe-purpose.html">目的別</a>
+    <a href="index.html#faq">よくある質問</a>
+    <a href="story.html">代表について</a>
+  </nav>
+  <button class="header-cta" onclick="location.href='https://lin.ee/tZyufz4'">無料相談</button>
+</header>
+
+<div class="breadcrumb">
+  <a href="index.html">トップ</a> ＞ <a href="wireframe-purpose.html">目的から探す</a> ＞ 長期留学
+</div>
+
+<nav class="purpose-nav">
+  <a href="short.html" class="pnav-item">短期留学</a>
+  <a href="wireframe-purpose.html" class="pnav-item active">長期留学</a>
+  <a href="intern.html" class="pnav-item">インターンシップ</a>
+  <a href="volunteer.html" class="pnav-item">ボランティア</a>
+</nav>
+
+<!-- HERO -->
+<section id="purpose-hero">
+  <div>
+    <div class="ph-tag">🎯 長期留学</div>
+    <h1 class="ph-h1">長期留学で、<br><em>本物の英語力</em>を<br>手に入れる。</h1>
+    <div class="ph-catch">3ヶ月〜1年以上。本格的に力をつけたい方に。</div>
+    <p class="ph-sub">
+      短期留学で得られる「体験」を超えて、<br>
+      本当の意味で英語が使えるようになる。<br>
+      長期留学だから得られる圧倒的な成長があります。
+    </p>
+    <div class="ph-btns">
+      <button class="btn-main" onclick="document.getElementById('purpose-cta').scrollIntoView({behavior:'smooth'})">長期留学を相談する →</button>
+      <button class="btn-sub" onclick="location.href='index.html#contact'">資料を受け取る</button>
+    </div>
+  </div>
+  <div class="ph-img">
+    <img src="images/hawaii-school.jpg" alt="長期留学イメージ" loading="lazy" />
+  </div>
+</section>
+
+<!-- WHAT IS IT -->
+<section id="what">
+  <div class="sec-label">ABOUT</div>
+  <h2 class="sec-title">長期留学とは？</h2>
+  <div class="what-wrap">
+    <div class="what-body">
+      長期留学とは、一般的に3ヶ月以上の留学を指します。語学学校での集中英語学習に加え、現地の生活に溶け込むことで、教室では学べない「リアルな英語」を身につけることができます。<br><br>
+      短期留学が「英語に触れる体験」であるのに対し、長期留学は「英語で生活する日常」。友人をつくり、現地の文化を体で感じ、自分が変わっていく実感を得られます。<br><br>
+      くまもと留学相談室では、目的・予算・英語レベルに合わせて3ヶ月から1年以上のプランを一緒に設計します。
+    </div>
+    <div class="what-img">
+      <img src="images/hawaii-school.jpg" alt="長期留学イメージ" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- MERITS -->
+<section id="merits">
+  <div class="sec-label">MERITS</div>
+  <h2 class="sec-title">長期留学の4つのメリット</h2>
+  <div class="merit-grid">
+    <div class="merit-card">
+      <div class="merit-num">1</div>
+      <div>
+        <div class="merit-title">英語が「使える」レベルまで到達できる</div>
+        <div class="merit-body">3ヶ月以上滞在することで、英語での日常会話が自然にできるようになります。就活・転職・資格取得など、実践で活かせる英語力が身につきます。</div>
+      </div>
+    </div>
+    <div class="merit-card">
+      <div class="merit-num">2</div>
+      <div>
+        <div class="merit-title">現地の人と深い人間関係が築ける</div>
+        <div class="merit-body">短期では難しい、現地の友人・ホストファミリーとの深いつながり。異なる文化背景をもつ人と本音で話せる体験は、人生観を大きく広げます。</div>
+      </div>
+    </div>
+    <div class="merit-card">
+      <div class="merit-num">3</div>
+      <div>
+        <div class="merit-title">自立心・問題解決力が飛躍的に伸びる</div>
+        <div class="merit-body">一人で生活を回す経験は、精神的な自立を生みます。困難を乗り越えるたびに自信がつき、帰国後の仕事・学業で「折れない強さ」が発揮されます。</div>
+      </div>
+    </div>
+    <div class="merit-card">
+      <div class="merit-num">4</div>
+      <div>
+        <div class="merit-title">就活・転職で圧倒的な差がつく</div>
+        <div class="merit-body">長期留学の経験は「本気でやり切った証明」として評価されます。外資系・グローバル企業はもちろん、地元熊本の企業でも、英語力と行動力は大きな武器です。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMMENDED FOR -->
+<section id="recommend">
+  <div class="sec-label">WHO IS THIS FOR</div>
+  <h2 class="sec-title">こんな人におすすめ</h2>
+  <div class="rec-grid">
+    <div>
+      <div class="rec-title">✅ 長期留学が向いている人</div>
+      <ul class="check-list">
+        <li>英語を本当に使えるようになりたい</li>
+        <li>就活・転職前に海外経験を積みたい</li>
+        <li>自分を変えるきっかけが欲しい</li>
+        <li>現地の生活・文化を深く体験したい</li>
+        <li>3ヶ月以上の時間が確保できる</li>
+        <li>費用をかけても確実な成長を求める</li>
+      </ul>
+    </div>
+    <div>
+      <div class="rec-title">💬 こんな声をよく聞きます</div>
+      <ul class="check-list cross-list">
+        <li>「英語ゼロだけど長期で挑戦していい？」→ 大丈夫です。レベル別クラスから始めます。</li>
+        <li>「費用が心配…」→ 国や期間で大きく変わります。まず相談を。</li>
+        <li>「仕事を辞めて行くのは不安」→ 帰国後のキャリアも一緒に考えます。</li>
+        <li>「一人は怖い」→ 出発前〜現地まで完全サポートします。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTRIES -->
+<section id="countries">
+  <div class="sec-label">DESTINATIONS</div>
+  <h2 class="sec-title">長期留学におすすめの国</h2>
+  <p class="sec-sub">目的・予算・英語レベルに合わせて選べます。</p>
+  <div class="country-grid">
+    <a href="cebu.html" class="country-card">
+      <div class="country-img"><img src="images/cebu.jpg" alt="セブ島" loading="lazy" /></div>
+      <div class="country-info">
+        <div class="country-flag">🇵🇭</div>
+        <div class="country-name">セブ島（フィリピン）</div>
+        <div class="country-period">1〜6ヶ月</div>
+      </div>
+    </a>
+    <a href="hawaii.html" class="country-card">
+      <div class="country-img"><img src="images/hawaii-school.jpg" alt="ハワイ" loading="lazy" /></div>
+      <div class="country-info">
+        <div class="country-flag">🇺🇸</div>
+        <div class="country-name">ハワイ（アメリカ）</div>
+        <div class="country-period">3ヶ月〜1年</div>
+      </div>
+    </a>
+    <a href="fiji.html" class="country-card">
+      <div class="country-img"><img src="images/fiji.jpg" alt="フィジー" loading="lazy" /></div>
+      <div class="country-info">
+        <div class="country-flag">🇫🇯</div>
+        <div class="country-name">フィジー</div>
+        <div class="country-period">1〜6ヶ月</div>
+      </div>
+    </a>
+    <a href="bali.html" class="country-card">
+      <div class="country-img"><img src="images/bali2.jpg" alt="バリ" loading="lazy" /></div>
+      <div class="country-info">
+        <div class="country-flag">🇮🇩</div>
+        <div class="country-name">バリ（インドネシア）</div>
+        <div class="country-period">1〜3ヶ月</div>
+      </div>
+    </a>
+    <a href="danang.html" class="country-card">
+      <div class="country-img"><img src="images/danang-intern2.jpg" alt="ダナン" loading="lazy" /></div>
+      <div class="country-info">
+        <div class="country-flag">🇻🇳</div>
+        <div class="country-name">ダナン（ベトナム）</div>
+        <div class="country-period">1〜3ヶ月</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="sec-label">TIMELINE</div>
+  <h2 class="sec-title">相談から出発・帰国までの流れ</h2>
+  <div class="timeline">
+    <div class="tl-step">
+      <div class="tl-dot">💬</div>
+      <div class="tl-month">STEP 1</div>
+      <div class="tl-title">無料相談</div>
+      <div class="tl-body">ZoomまたはLINEビデオ通話、もしくは熊本大学近くのオフィスでお話しします</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">🧠</div>
+      <div class="tl-month">STEP 2</div>
+      <div class="tl-title">プランニング</div>
+      <div class="tl-body">留学経験ありのカウンセラーが、あなたに合う留学プランを提案</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">📝</div>
+      <div class="tl-month">STEP 3</div>
+      <div class="tl-title">申込・手続き</div>
+      <div class="tl-body">学校申込・ビザ取得・渡航準備をフルサポート</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">✈️</div>
+      <div class="tl-month">STEP 4</div>
+      <div class="tl-title">出発・現地生活</div>
+      <div class="tl-body">渡航中もLINEでいつでも相談OK。現地トラブル対応も</div>
+    </div>
+    <div class="tl-step">
+      <div class="tl-dot">🎓</div>
+      <div class="tl-month">STEP 5</div>
+      <div class="tl-title">帰国・キャリア</div>
+      <div class="tl-body">帰国後の就活・転職・次のステップも一緒に考えます</div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section id="voices">
+  <div class="sec-label">VOICES</div>
+  <h2 class="sec-title">長期留学を経験した方の声</h2>
+  <div class="voice-grid">
+    <div class="voice-card">
+      <div class="voice-head">
+        <div class="voice-avatar">👩</div>
+        <div>
+          <div class="voice-name">A.K さん（大学3年生）</div>
+          <div class="voice-meta">セブ島 6ヶ月</div>
+        </div>
+      </div>
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">英語ゼロで行きましたが、6ヶ月で英語でプレゼンできるようになりました。帰国後の就活では「海外経験があります」と堂々と言えて、第一志望の企業に内定。留学前後で別人みたいに変わりました。</div>
+      <div class="voice-tag">🇵🇭 長期留学 / 大学生</div>
+    </div>
+    <div class="voice-card">
+      <div class="voice-head">
+        <div class="voice-avatar">👨</div>
+        <div>
+          <div class="voice-name">R.M さん（社会人 31歳）</div>
+          <div class="voice-meta">ハワイ 3ヶ月</div>
+        </div>
+      </div>
+      <div class="voice-stars">★★★★★</div>
+      <div class="voice-text">仕事を辞めて行くのは怖かったですが、カウンセラーさんが帰国後のキャリアまで一緒に考えてくれたので踏み出せました。3ヶ月で英語力が格段に上がり、外資系企業への転職も実現できました。</div>
+      <div class="voice-tag">🇺🇸 長期留学 / 社会人</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="purpose-cta">
+  <h2 class="cta-h2">長期留学について、まず相談してみませんか？</h2>
+  <p class="cta-sub">「行けるかどうかわからない」段階でのご相談も大歓迎です。費用は一切かかりません。</p>
+  <div class="cta-btns">
+    <button class="cta-btn-main" onclick="location.href='https://lin.ee/tZyufz4'">💬 LINEで相談する</button>
+    <button class="cta-btn-sub" onclick="location.href='index.html#contact'">📄 無料資料を請求する</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">くまもと留学相談室</div>
+      <div>© 2025 くまもと留学相談室</div>
+    </div>
+    <nav class="footer-nav">
+      <a href="index.html">トップ</a>
+      <a href="index.html#programs">プログラム</a>
+      <a href="index.html#contact">お問い合わせ</a>
+      <a href="index.html#faq">よくある質問</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
